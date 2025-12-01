@@ -1,0 +1,49 @@
+===========  [Here are the slice info]  ===========
+The program name is : ProductionScheduler
+The total lines of original code is: 46
+The total lines of sliced code is: 24
+The deduction ratio is:47.82%
+===========  [Here are all the safe paths and used testcases]  ===========
+************** The safe path 1 ********************
+Timecost is: 477.0 ms
+The Ct is:  !((((4)) * 30 + 50) >= 200 && (((4)) * 30 + 50) <= 350) && !(((4)) > (24)) && (hours < (4))
+The Dt is :(((((4)) * 30 + 50) % 8) >= 0 && ((((4)) * 30 + 50) % 8) < 8)
+Ct && !(Dt):  !((((4)) * 30 + 50) >= 200 && (((4)) * 30 + 50) <= 350) && !(((4)) > (24)) && (hours < (4)) && !(((((4)) * 30 + 50) % 8) >= 0 && ((((4)) * 30 + 50) % 8) < 8), which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int hours = 0;
+    int result = ProductionScheduler.calculateOutput(hours);
+}
+************** The safe path 2 ********************
+Timecost is: 481.0 ms
+The Ct is:  !((((24)) * 30 + 50) >= 200 && (((24)) * 30 + 50) <= 350) && (hours > (24)) && !(hours < (4))
+The Dt is :(((((24)) * 30 + 50) % 8) >= 0 && ((((24)) * 30 + 50) % 8) < 8)
+Ct && !(Dt):  !((((24)) * 30 + 50) >= 200 && (((24)) * 30 + 50) <= 350) && (hours > (24)) && !(hours < (4)) && !(((((24)) * 30 + 50) % 8) >= 0 && ((((24)) * 30 + 50) % 8) < 8), which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int hours = 16384;
+    int result = ProductionScheduler.calculateOutput(hours);
+}
+************** The safe path 3 ********************
+Timecost is: 485.0 ms
+The Ct is:  ((hours * 30 + 50) >= 200 && (hours * 30 + 50) <= 350) && !(hours > (24)) && !(hours < (4))
+The Dt is :(((hours * 30 + 50) / 50) >= 0 && ((hours * 30 + 50) / 50) < 8)
+Ct && !(Dt):  ((hours * 30 + 50) >= 200 && (hours * 30 + 50) <= 350) && !(hours > (24)) && !(hours < (4)) && !(((hours * 30 + 50) / 50) >= 0 && ((hours * 30 + 50) / 50) < 8), which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int hours = 7;
+    int result = ProductionScheduler.calculateOutput(hours);
+}
+************** The safe path 4 ********************
+Timecost is: 457.0 ms
+The Ct is:  !((hours * 30 + 50) >= 200 && (hours * 30 + 50) <= 350) && !(hours > (24)) && !(hours < (4))
+The Dt is :(((hours * 30 + 50) % 8) >= 0 && ((hours * 30 + 50) % 8) < 8)
+Ct && !(Dt):  !((hours * 30 + 50) >= 200 && (hours * 30 + 50) <= 350) && !(hours > (24)) && !(hours < (4)) && !(((hours * 30 + 50) % 8) >= 0 && ((hours * 30 + 50) % 8) < 8), which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int hours = 16;
+    int result = ProductionScheduler.calculateOutput(hours);
+}
+
+
+===========  [Here are all the dangerous paths and the dangerous inputs ]  ===========

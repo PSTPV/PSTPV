@@ -1,0 +1,45 @@
+===========  [Here are the slice info]  ===========
+The program name is : TaxCalculator
+The total lines of original code is: 56
+The total lines of sliced code is: 25
+The deduction ratio is:55.35%
+===========  [Here are all the safe paths and used testcases]  ===========
+************** The safe path 1 ********************
+Timecost is: 469.0 ms
+The Ct is:  (((income - (1000)) / 3000) == 2) && !(((income - (1000)) / 3000) < 0) && !((income - (1000)) <= 0) && !(income > 16000) && !(income < 0)
+The Dt is :true
+Ct && !(Dt):  (((income - (1000)) / 3000) == 2) && !(((income - (1000)) / 3000) < 0) && !((income - (1000)) <= 0) && !(income > 16000) && !(income < 0) && !true, which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int income = 8192;
+    int result = TaxCalculator.calculateTax(income);
+}
+************** The safe path 2 ********************
+Timecost is: 478.0 ms
+The Ct is:  (income > 16000) && !(income < 0)
+The Dt is :true
+Ct && !(Dt):  (income > 16000) && !(income < 0) && !true, which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int income = 16368;
+    int result = TaxCalculator.calculateTax(income);
+}
+************** The safe path 3 ********************
+Timecost is: 472.0 ms
+The Ct is:  ((income - (1000)) <= 0) && !(income > 16000) && !(income < 0)
+The Dt is :true
+Ct && !(Dt):  ((income - (1000)) <= 0) && !(income > 16000) && !(income < 0) && !true, which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int income = 0;
+    int result = TaxCalculator.calculateTax(income);
+}
+
+
+===========  [Here are all the dangerous paths and the dangerous inputs ]  ===========
+************** The dangerous path 1 ********************
+The Ct is:  !(((income - (1000)) / 3000) == 2) && !(((income - (1000)) / 3000) < 0) && !((income - (1000)) <= 0) && !(income > 16000) && !(income < 0)
+The (Dt) is :(((income - (1000)) / 3000) >= 0 && ((income - (1000)) / 3000) < 5)
+RE will be triggered under Ct && !(Dt):  !(((income - (1000)) / 3000) == 2) && !(((income - (1000)) / 3000) < 0) && !((income - (1000)) <= 0) && !(income > 16000) && !(income < 0) && !(((income - (1000)) / 3000) >= 0 && ((income - (1000)) / 3000) < 5)
+The dangerous inputs in this path are as follows: 
+1. [income=16000] 

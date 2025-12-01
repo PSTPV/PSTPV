@@ -1,0 +1,48 @@
+===========  [Here are the slice info]  ===========
+The program name is : ShippingCalculator
+The total lines of original code is: 43
+The total lines of sliced code is: 24
+The deduction ratio is:44.18%
+===========  [Here are all the safe paths and used testcases]  ===========
+************** The safe path 1 ********************
+Timecost is: 487.0 ms
+The Ct is:  (weight <= 0 || distance <= 0)
+The Dt is :true
+Ct && !(Dt):  (weight <= 0 || distance <= 0) && !true, which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int weight = 0;
+int distance = 0;
+    int result = ShippingCalculator.calculateCost(weight, distance);
+}
+************** The safe path 2 ********************
+Timecost is: 459.0 ms
+The Ct is:  (weight > 50) && !(weight <= 0 || distance <= 0)
+The Dt is :true
+Ct && !(Dt):  (weight > 50) && !(weight <= 0 || distance <= 0) && !true, which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int weight = 16384;
+int distance = 16384;
+    int result = ShippingCalculator.calculateCost(weight, distance);
+}
+
+
+===========  [Here are all the dangerous paths and the dangerous inputs ]  ===========
+************** The dangerous path 1 ********************
+The Ct is:  !((weight / 10) == 0) && !((weight / 10) < 0) && !(weight > 50) && !(weight <= 0 || distance <= 0)
+The (Dt) is :((weight / 10) >= 0 && (weight / 10) < 3)
+RE will be triggered under Ct && !(Dt):  !((weight / 10) == 0) && !((weight / 10) < 0) && !(weight > 50) && !(weight <= 0 || distance <= 0) && !((weight / 10) >= 0 && (weight / 10) < 3)
+The dangerous inputs in this path are as follows: 
+1. [distance=16384,weight=32] 
+2. [distance=16384,weight=36] 
+3. [distance=16384,weight=37] 
+4. [distance=1024,weight=30] 
+5. [distance=204,weight=37] 
+6. [distance=1024,weight=37] 
+7. [distance=1024,weight=32] 
+8. [distance=1024,weight=48] 
+9. [distance=1024,weight=36] 
+10. [distance=1024,weight=33] 
+11. [distance=16816,weight=32] 
+12. [TOO_MANY_ERROR=1] 

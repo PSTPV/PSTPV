@@ -1,0 +1,25 @@
+===========  [Here are the slice info]  ===========
+The program name is : TO_BASE
+The total lines of original code is: 18
+The total lines of sliced code is: 13
+The deduction ratio is:27.77%
+===========  [Here are all the safe paths and used testcases]  ===========
+************** The safe path 1 ********************
+Timecost is: 535.0 ms
+The Ct is:  !(((((b + 200) / 3) / b) / b) > 0) && ((((b + 200) / 3) / b) > 0) && (((b + 200) / 3) > 0) && !(b == 1)
+The Dt is :(b != 0)
+Ct && !(Dt):  !(((((b + 200) / 3) / b) / b) > 0) && ((((b + 200) / 3) / b) > 0) && (((b + 200) / 3) > 0) && !(b == 1) && !(b != 0), which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int b = 16;
+    String result = TO_BASE.to_base(b);
+}
+
+
+===========  [Here are all the dangerous paths and the dangerous inputs ]  ===========
+************** The dangerous path 1 ********************
+The Ct is:  !((((b + 200) / 3) / b) > 0) && (((b + 200) / 3) > 0) && !(b == 1)
+The (Dt) is :(b != 0)
+RE will be triggered under Ct && !(Dt):  !((((b + 200) / 3) / b) > 0) && (((b + 200) / 3) > 0) && !(b == 1) && !(b != 0)
+The dangerous inputs in this path are as follows: 
+1. [b=0] 

@@ -1,0 +1,52 @@
+===========  [Here are the slice info]  ===========
+The program name is : PaymentProcessor
+The total lines of original code is: 38
+The total lines of sliced code is: 30
+The deduction ratio is:21.05%
+===========  [Here are all the safe paths and used testcases]  ===========
+************** The safe path 1 ********************
+Timecost is: 479.0 ms
+The Ct is:  (((((100)) - 15) % 8) > 0 && ((((100)) - 15) % 8) < 8) && !((((100)) - 15) >= 8 && (((100)) - 15) <= 16) && (payment > (100)) && !(payment < (20))
+The Dt is :true
+Ct && !(Dt):  (((((100)) - 15) % 8) > 0 && ((((100)) - 15) % 8) < 8) && !((((100)) - 15) >= 8 && (((100)) - 15) <= 16) && (payment > (100)) && !(payment < (20)) && !true, which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int payment = 120;
+    String result = PaymentProcessor.calculateChange(payment);
+}
+************** The safe path 2 ********************
+Timecost is: 479.0 ms
+The Ct is:  (((((20)) - 15) % 8) > 0 && ((((20)) - 15) % 8) < 8) && !((((20)) - 15) >= 8 && (((20)) - 15) <= 16) && !(((20)) > (100)) && (payment < (20))
+The Dt is :true
+Ct && !(Dt):  (((((20)) - 15) % 8) > 0 && ((((20)) - 15) % 8) < 8) && !((((20)) - 15) >= 8 && (((20)) - 15) <= 16) && !(((20)) > (100)) && (payment < (20)) && !true, which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int payment = 0;
+    String result = PaymentProcessor.calculateChange(payment);
+}
+************** The safe path 3 ********************
+Timecost is: 472.0 ms
+The Ct is:  (((payment - 15) % 8) > 0 && ((payment - 15) % 8) < 8) && !((payment - 15) >= 8 && (payment - 15) <= 16) && !(payment > (100)) && !(payment < (20))
+The Dt is :true
+Ct && !(Dt):  (((payment - 15) % 8) > 0 && ((payment - 15) % 8) < 8) && !((payment - 15) >= 8 && (payment - 15) <= 16) && !(payment > (100)) && !(payment < (20)) && !true, which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int payment = 20;
+    String result = PaymentProcessor.calculateChange(payment);
+}
+
+
+===========  [Here are all the dangerous paths and the dangerous inputs ]  ===========
+************** The dangerous path 1 ********************
+The Ct is:  !(((payment - 15) % 8) > 0 && ((payment - 15) % 8) < 8) && !((payment - 15) >= 8 && (payment - 15) <= 16) && !(payment > (100)) && !(payment < (20))
+The (Dt) is :false
+RE will be triggered under Ct && !(Dt):  !(((payment - 15) % 8) > 0 && ((payment - 15) % 8) < 8) && !((payment - 15) >= 8 && (payment - 15) <= 16) && !(payment > (100)) && !(payment < (20)) && !false
+The dangerous inputs in this path are as follows: 
+1. [payment=87] 
+2. [payment=55] 
+3. [payment=39] 
+4. [payment=79] 
+5. [payment=71] 
+6. [payment=95] 
+7. [payment=63] 
+8. [payment=47] 

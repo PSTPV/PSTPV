@@ -1,0 +1,60 @@
+===========  [Here are the slice info]  ===========
+The program name is : SpeedEstimator
+The total lines of original code is: 58
+The total lines of sliced code is: 27
+The deduction ratio is:53.44%
+===========  [Here are all the safe paths and used testcases]  ===========
+************** The safe path 1 ********************
+Timecost is: 460.0 ms
+The Ct is:  !(time > 0) && (distance > 20) && (time < 5) && ((((((distance) + 10) * 2) - (2)) + 5) > -50 && (((((distance) + 10) * 2) - (2)) + 5) <= 67)
+The Dt is :true
+Ct && !(Dt):  !(time > 0) && (distance > 20) && (time < 5) && ((((((distance) + 10) * 2) - (2)) + 5) > -50 && (((((distance) + 10) * 2) - (2)) + 5) <= 67) && !true, which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int distance = 21;
+int time = 0;
+    double result = SpeedEstimator.estimateSpeed(distance, time);
+}
+************** The safe path 2 ********************
+Timecost is: 476.0 ms
+The Ct is:  !(distance > 20) && (time < 5) && ((((((distance) + 10) * 2) - (2)) + 5) > -50 && (((((distance) + 10) * 2) - (2)) + 5) <= 67)
+The Dt is :true
+Ct && !(Dt):  !(distance > 20) && (time < 5) && ((((((distance) + 10) * 2) - (2)) + 5) > -50 && (((((distance) + 10) * 2) - (2)) + 5) <= 67) && !true, which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int distance = 0;
+int time = 0;
+    double result = SpeedEstimator.estimateSpeed(distance, time);
+}
+************** The safe path 3 ********************
+Timecost is: 468.0 ms
+The Ct is:  !(time < 5) && ((((((distance) + 10) * 2) - (2)) + 5) > -50 && (((((distance) + 10) * 2) - (2)) + 5) <= 67)
+The Dt is :true
+Ct && !(Dt):  !(time < 5) && ((((((distance) + 10) * 2) - (2)) + 5) > -50 && (((((distance) + 10) * 2) - (2)) + 5) <= 67) && !true, which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int distance = 22;
+int time = 5;
+    double result = SpeedEstimator.estimateSpeed(distance, time);
+}
+************** The safe path 4 ********************
+Timecost is: 480.0 ms
+The Ct is:  !((((((distance) + 10) * 2) - (2)) + 5) > -50 && (((((distance) + 10) * 2) - (2)) + 5) <= 67)
+The Dt is :true
+Ct && !(Dt):  !((((((distance) + 10) * 2) - (2)) + 5) > -50 && (((((distance) + 10) * 2) - (2)) + 5) <= 67) && !true, which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int distance = 16400;
+int time = 5;
+    double result = SpeedEstimator.estimateSpeed(distance, time);
+}
+
+
+===========  [Here are all the dangerous paths and the dangerous inputs ]  ===========
+************** The dangerous path 1 ********************
+The Ct is:  (time != 0) && (time > 0) && (distance > 20) && (time < 5) && ((((((distance) + 10) * 2) - (2)) + 5) > -50 && (((((distance) + 10) * 2) - (2)) + 5) <= 67)
+The (Dt) is :((time - 1) != 0)
+RE will be triggered under Ct && !(Dt):  (time != 0) && (time > 0) && (distance > 20) && (time < 5) && ((((((distance) + 10) * 2) - (2)) + 5) > -50 && (((((distance) + 10) * 2) - (2)) + 5) <= 67) && !((time - 1) != 0)
+The dangerous inputs in this path are as follows: 
+1. [distance=22,time=1] 
+2. [distance=21,time=1] 

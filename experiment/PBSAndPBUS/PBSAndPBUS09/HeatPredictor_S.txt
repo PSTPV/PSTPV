@@ -1,0 +1,53 @@
+===========  [Here are the slice info]  ===========
+The program name is : HeatPredictor_S
+The total lines of original code is: 68
+The total lines of sliced code is: 25
+The deduction ratio is:63.23%
+===========  [Here are all the safe paths and used testcases]  ===========
+************** The safe path 1 ********************
+Timecost is: 474.0 ms
+The Ct is:  ((((((level) + 6) * 2) - (3)) + 4) < 0)
+The Dt is :true
+Ct && !(Dt):  ((((((level) + 6) * 2) - (3)) + 4) < 0) && !true, which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int level = -32762;
+int factor = 12;
+    double result = HeatPredictor_S.predictHeat(level, factor);
+}
+************** The safe path 2 ********************
+Timecost is: 464.0 ms
+The Ct is:  !((((((level) + 6) * 2) - (3)) + 4) > 30) && !((((((level) + 6) * 2) - (3)) + 4) < 0)
+The Dt is :true
+Ct && !(Dt):  !((((((level) + 6) * 2) - (3)) + 4) > 30) && !((((((level) + 6) * 2) - (3)) + 4) < 0) && !true, which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int level = 0;
+int factor = 0;
+    double result = HeatPredictor_S.predictHeat(level, factor);
+}
+************** The safe path 3 ********************
+Timecost is: 449.0 ms
+The Ct is:  !(factor <= 8) && ((((((level) + 6) * 2) - (3)) + 4) > 30) && !((((((level) + 6) * 2) - (3)) + 4) < 0)
+The Dt is :true
+Ct && !(Dt):  !(factor <= 8) && ((((((level) + 6) * 2) - (3)) + 4) > 30) && !((((((level) + 6) * 2) - (3)) + 4) < 0) && !true, which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int level = 2840;
+int factor = 2048;
+    double result = HeatPredictor_S.predictHeat(level, factor);
+}
+************** The safe path 4 ********************
+Timecost is: 454.0 ms
+The Ct is:  !(level < 5) && (factor <= 8) && ((((((level) + 6) * 2) - (3)) + 4) > 30) && !((((((level) + 6) * 2) - (3)) + 4) < 0)
+The Dt is :true
+Ct && !(Dt):  !(level < 5) && (factor <= 8) && ((((((level) + 6) * 2) - (3)) + 4) > 30) && !((((((level) + 6) * 2) - (3)) + 4) < 0) && !true, which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int level = 32762;
+int factor = 0;
+    double result = HeatPredictor_S.predictHeat(level, factor);
+}
+
+
+===========  [Here are all the dangerous paths and the dangerous inputs ]  ===========

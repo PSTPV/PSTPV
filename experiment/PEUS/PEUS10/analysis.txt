@@ -1,0 +1,11 @@
+
+--- Aggregate Program Safety Analysis ---
+------------------------------------------------------------------
+Safe Program Count: 0
+Average Testcases per Safe Program: 0.000
+Average Time Cost (ms) for Safe Programs: 0.000
+------------------------------------------------------------------
+Unsafe Program Count: 7
+Average Testcases per Unsafe Program: 5.857
+Average Time Cost (ms) for Unsafe Programs (Valid Data Only): 745.118
+------------------------------------------------------------------

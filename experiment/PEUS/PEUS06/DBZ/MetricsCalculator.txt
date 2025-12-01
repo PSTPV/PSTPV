@@ -1,0 +1,125 @@
+===========  [Here are the slice info]  ===========
+The program name is : MetricsCalculator
+The total lines of original code is: 39
+The total lines of sliced code is: 15
+The deduction ratio is:61.53%
+===========  [Here are all the safe paths and used testcases]  ===========
+************** The safe path 1 ********************
+Timecost is: 466.0 ms
+The Ct is:  !(((limit - value) / 2) > 0) && (limit > 0) && !(value < 0)
+The Dt is :((((-26) + 1) % 10) != 0)
+Ct && !(Dt):  !(((limit - value) / 2) > 0) && (limit > 0) && !(value < 0) && !((((-26) + 1) % 10) != 0), which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int value = 68;
+int limit = 4;
+    double result = MetricsCalculator.computeScore(value, limit);
+}
+************** The safe path 2 ********************
+Timecost is: 462.0 ms
+The Ct is:  !(limit > 0) && (value < 0)
+The Dt is :(((-26) % 10) != 0)
+Ct && !(Dt):  !(limit > 0) && (value < 0) && !(((-26) % 10) != 0), which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int value = -199;
+int limit = -173;
+    double result = MetricsCalculator.computeScore(value, limit);
+}
+************** The safe path 3 ********************
+Timecost is: 473.0 ms
+The Ct is:  !(((((limit - -(value)) / 2) - -(value)) / 2) > 0) && (((limit - -(value)) / 2) > 0) && (limit > 0) && (value < 0)
+The Dt is :(((((-26) + 1) + 1) % 10) != 0)
+Ct && !(Dt):  !(((((limit - -(value)) / 2) - -(value)) / 2) > 0) && (((limit - -(value)) / 2) > 0) && (limit > 0) && (value < 0) && !(((((-26) + 1) + 1) % 10) != 0), which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int value = -83;
+int limit = 135;
+    double result = MetricsCalculator.computeScore(value, limit);
+}
+************** The safe path 4 ********************
+Timecost is: 475.0 ms
+The Ct is:  !(((((((limit - value) / 2) - value) / 2) - value) / 2) > 0) && (((((limit - value) / 2) - value) / 2) > 0) && (((limit - value) / 2) > 0) && (limit > 0) && !(value < 0)
+The Dt is :((((((-26) + 1) + 1) + 1) % 10) != 0)
+Ct && !(Dt):  !(((((((limit - value) / 2) - value) / 2) - value) / 2) > 0) && (((((limit - value) / 2) - value) / 2) > 0) && (((limit - value) / 2) > 0) && (limit > 0) && !(value < 0) && !((((((-26) + 1) + 1) + 1) % 10) != 0), which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int value = 15;
+int limit = 97;
+    double result = MetricsCalculator.computeScore(value, limit);
+}
+************** The safe path 5 ********************
+Timecost is: 454.0 ms
+The Ct is:  !(limit > 0) && !(value < 0)
+The Dt is :(((-26) % 10) != 0)
+Ct && !(Dt):  !(limit > 0) && !(value < 0) && !(((-26) % 10) != 0), which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int value = 129;
+int limit = -170;
+    double result = MetricsCalculator.computeScore(value, limit);
+}
+************** The safe path 6 ********************
+Timecost is: 471.0 ms
+The Ct is:  !(((((((limit - -(value)) / 2) - -(value)) / 2) - -(value)) / 2) > 0) && (((((limit - -(value)) / 2) - -(value)) / 2) > 0) && (((limit - -(value)) / 2) > 0) && (limit > 0) && (value < 0)
+The Dt is :((((((-26) + 1) + 1) + 1) % 10) != 0)
+Ct && !(Dt):  !(((((((limit - -(value)) / 2) - -(value)) / 2) - -(value)) / 2) > 0) && (((((limit - -(value)) / 2) - -(value)) / 2) > 0) && (((limit - -(value)) / 2) > 0) && (limit > 0) && (value < 0) && !((((((-26) + 1) + 1) + 1) % 10) != 0), which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int value = -18;
+int limit = 81;
+    double result = MetricsCalculator.computeScore(value, limit);
+}
+************** The safe path 7 ********************
+Timecost is: 472.0 ms
+The Ct is:  !(((limit - -(value)) / 2) > 0) && (limit > 0) && (value < 0)
+The Dt is :((((-26) + 1) % 10) != 0)
+Ct && !(Dt):  !(((limit - -(value)) / 2) > 0) && (limit > 0) && (value < 0) && !((((-26) + 1) % 10) != 0), which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int value = -176;
+int limit = 147;
+    double result = MetricsCalculator.computeScore(value, limit);
+}
+************** The safe path 8 ********************
+Timecost is: 471.0 ms
+The Ct is:  !(((((limit - value) / 2) - value) / 2) > 0) && (((limit - value) / 2) > 0) && (limit > 0) && !(value < 0)
+The Dt is :(((((-26) + 1) + 1) % 10) != 0)
+Ct && !(Dt):  !(((((limit - value) / 2) - value) / 2) > 0) && (((limit - value) / 2) > 0) && (limit > 0) && !(value < 0) && !(((((-26) + 1) + 1) % 10) != 0), which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int value = 159;
+int limit = 161;
+    double result = MetricsCalculator.computeScore(value, limit);
+}
+************** The safe path 9 ********************
+Timecost is: 474.0 ms
+The Ct is:  !(((((((((limit - value) / 2) - value) / 2) - value) / 2) - value) / 2) > 0) && (((((((limit - value) / 2) - value) / 2) - value) / 2) > 0) && (((((limit - value) / 2) - value) / 2) > 0) && (((limit - value) / 2) > 0) && (limit > 0) && !(value < 0)
+The Dt is :(((((((-26) + 1) + 1) + 1) + 1) % 10) != 0)
+Ct && !(Dt):  !(((((((((limit - value) / 2) - value) / 2) - value) / 2) - value) / 2) > 0) && (((((((limit - value) / 2) - value) / 2) - value) / 2) > 0) && (((((limit - value) / 2) - value) / 2) > 0) && (((limit - value) / 2) > 0) && (limit > 0) && !(value < 0) && !(((((((-26) + 1) + 1) + 1) + 1) % 10) != 0), which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int value = 20;
+int limit = 168;
+    double result = MetricsCalculator.computeScore(value, limit);
+}
+
+
+===========  [Here are all the dangerous paths and the dangerous inputs ]  ===========
+************** The dangerous path 1 ********************
+The Ct is:  !(((((((((((((limit - -(value)) / 2) - -(value)) / 2) - -(value)) / 2) - -(value)) / 2) - -(value)) / 2) - -(value)) / 2) > 0) && (((((((((((limit - -(value)) / 2) - -(value)) / 2) - -(value)) / 2) - -(value)) / 2) - -(value)) / 2) > 0) && (((((((((limit - -(value)) / 2) - -(value)) / 2) - -(value)) / 2) - -(value)) / 2) > 0) && (((((((limit - -(value)) / 2) - -(value)) / 2) - -(value)) / 2) > 0) && (((((limit - -(value)) / 2) - -(value)) / 2) > 0) && (((limit - -(value)) / 2) > 0) && (limit > 0) && (value < 0)
+The (Dt) is :(((((((((-26) + 1) + 1) + 1) + 1) + 1) + 1) % 10) != 0)
+RE will be triggered under Ct && !(Dt):  !(((((((((((((limit - -(value)) / 2) - -(value)) / 2) - -(value)) / 2) - -(value)) / 2) - -(value)) / 2) - -(value)) / 2) > 0) && (((((((((((limit - -(value)) / 2) - -(value)) / 2) - -(value)) / 2) - -(value)) / 2) - -(value)) / 2) > 0) && (((((((((limit - -(value)) / 2) - -(value)) / 2) - -(value)) / 2) - -(value)) / 2) > 0) && (((((((limit - -(value)) / 2) - -(value)) / 2) - -(value)) / 2) > 0) && (((((limit - -(value)) / 2) - -(value)) / 2) > 0) && (((limit - -(value)) / 2) > 0) && (limit > 0) && (value < 0) && !(((((((((-26) + 1) + 1) + 1) + 1) + 1) + 1) % 10) != 0)
+The dangerous inputs in this path are as follows: 
+1. [limit=27297,value=-457] 
+2. [limit=9332,value=-148] 
+3. [limit=25736,value=-409] 
+4. [limit=25356,value=-402] 
+5. [limit=25969,value=-412] 
+6. [limit=27144,value=-431] 
+7. [limit=10118,value=-325] 
+8. [limit=12976,value=-393] 
+9. [limit=18940,value=-411] 
+10. [limit=24381,value=-411] 
+11. [limit=31889,value=-1027] 
+12. [TOO_MANY_ERROR=1] 

@@ -1,0 +1,4 @@
+[{"testcaseMap":null,"mainMd":"public static void main(String[] args) {\nint b = 16;\n    String result = TO_BASE.to_base(b);\n}","logicExprOfPath":" !(((((b + 200) / 3) / b) / b) > 0) && ((((b + 200) / 3) / b) > 0) && (((b + 200) / 3) > 0) && !(b == 1)","logicExprOfDT":"(b != 0)","dangerousInput":false,"timeCostInMs":535.0}
+,{"testcaseMap":null,"mainMd":"public static void main(String[] args) {\nint b = -14;\n    String result = TO_BASE.to_base(b);\n}","logicExprOfPath":" !((((b + 200) / 3) / b) > 0) && (((b + 200) / 3) > 0) && !(b == 1)","logicExprOfDT":"(b != 0)","dangerousInput":false,"timeCostInMs":543.0}
+,{"testcaseMap":{"b ":" 0"},"mainMd":null,"logicExprOfPath":" !((((b + 200) / 3) / b) > 0) && (((b + 200) / 3) > 0) && !(b == 1)","logicExprOfDT":"(b != 0)","dangerousInput":true,"timeCostInMs":0.0}
+]

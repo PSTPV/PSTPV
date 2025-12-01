@@ -1,0 +1,7 @@
+[{"testcaseMap":null,"mainMd":"public static void main(String[] args) {\nint n = 174;\n    int result = Power3Bit.power3Bit(n);\n}","logicExprOfPath":" !(n < 5) && (n > 0) && !(n < 0)","logicExprOfDT":"true","dangerousInput":false,"timeCostInMs":570.0}
+,{"testcaseMap":null,"mainMd":"public static void main(String[] args) {\nint n = -10;\n    int result = Power3Bit.power3Bit(n);\n}","logicExprOfPath":" !(-(n) < 5) && (-(n) > 0) && (n < 0)","logicExprOfDT":"true","dangerousInput":false,"timeCostInMs":466.0}
+,{"testcaseMap":null,"mainMd":"public static void main(String[] args) {\nint n = 1;\n    int result = Power3Bit.power3Bit(n);\n}","logicExprOfPath":" !(((0) + 1) < n) && ((0) < n) && (n < 5) && (n > 0) && !(n < 0)","logicExprOfDT":"true","dangerousInput":false,"timeCostInMs":472.0}
+,{"testcaseMap":null,"mainMd":"public static void main(String[] args) {\nint n = 3;\n    int result = Power3Bit.power3Bit(n);\n}","logicExprOfPath":" !(((((0) + 1) + 1) + 1) < n) && ((((0) + 1) + 1) < n) && (((0) + 1) < n) && ((0) < n) && (n < 5) && (n > 0) && !(n < 0)","logicExprOfDT":"true","dangerousInput":false,"timeCostInMs":543.0}
+,{"testcaseMap":null,"mainMd":"public static void main(String[] args) {\nint n = 0;\n    int result = Power3Bit.power3Bit(n);\n}","logicExprOfPath":" !(n > 0) && !(n < 0)","logicExprOfDT":"false","dangerousInput":false,"timeCostInMs":471.0}
+,{"testcaseMap":{"n ":" 0"},"mainMd":null,"logicExprOfPath":" !(n > 0) && !(n < 0)","logicExprOfDT":"false","dangerousInput":true,"timeCostInMs":0.0}
+]

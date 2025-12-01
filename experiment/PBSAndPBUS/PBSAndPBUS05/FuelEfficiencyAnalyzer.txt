@@ -1,0 +1,52 @@
+===========  [Here are the slice info]  ===========
+The program name is : FuelEfficiencyAnalyzer
+The total lines of original code is: 51
+The total lines of sliced code is: 20
+The deduction ratio is:60.78%
+===========  [Here are all the safe paths and used testcases]  ===========
+************** The safe path 1 ********************
+Timecost is: 441.0 ms
+The Ct is:  !((((distance) + 10) * 2) > (10))
+The Dt is :true
+Ct && !(Dt):  !((((distance) + 10) * 2) > (10)) && !true, which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int distance = -29405;
+int fuelUsed = 0;
+    double result = FuelEfficiencyAnalyzer.analyzeEfficiency(distance, fuelUsed);
+}
+************** The safe path 2 ********************
+Timecost is: 467.0 ms
+The Ct is:  ((fuelUsed - 3) < 0) && ((((distance) + 10) * 2) < 35 && (((distance) + 10) * 2) > 25) && ((((distance) + 10) * 2) > (10))
+The Dt is :((1) != 0)
+Ct && !(Dt):  ((fuelUsed - 3) < 0) && ((((distance) + 10) * 2) < 35 && (((distance) + 10) * 2) > 25) && ((((distance) + 10) * 2) > (10)) && !((1) != 0), which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int distance = 4;
+int fuelUsed = 0;
+    double result = FuelEfficiencyAnalyzer.analyzeEfficiency(distance, fuelUsed);
+}
+************** The safe path 3 ********************
+Timecost is: 466.0 ms
+The Ct is:  !((((distance) + 10) * 2) < 35 && (((distance) + 10) * 2) > 25) && ((((distance) + 10) * 2) > (10))
+The Dt is :true
+Ct && !(Dt):  !((((distance) + 10) * 2) < 35 && (((distance) + 10) * 2) > 25) && ((((distance) + 10) * 2) > (10)) && !true, which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int distance = 0;
+int fuelUsed = 0;
+    double result = FuelEfficiencyAnalyzer.analyzeEfficiency(distance, fuelUsed);
+}
+
+
+===========  [Here are all the dangerous paths and the dangerous inputs ]  ===========
+************** The dangerous path 1 ********************
+The Ct is:  !((fuelUsed - 3) < 0) && ((((distance) + 10) * 2) < 35 && (((distance) + 10) * 2) > 25) && ((((distance) + 10) * 2) > (10))
+The (Dt) is :((fuelUsed - 3) != 0)
+RE will be triggered under Ct && !(Dt):  !((fuelUsed - 3) < 0) && ((((distance) + 10) * 2) < 35 && (((distance) + 10) * 2) > 25) && ((((distance) + 10) * 2) > (10)) && !((fuelUsed - 3) != 0)
+The dangerous inputs in this path are as follows: 
+1. [distance=7,fuelUsed=3] 
+2. [distance=4,fuelUsed=3] 
+3. [distance=3,fuelUsed=3] 
+4. [distance=5,fuelUsed=3] 
+5. [distance=6,fuelUsed=3] 

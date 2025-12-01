@@ -1,0 +1,48 @@
+===========  [Here are the slice info]  ===========
+The program name is : HeatPredictor
+The total lines of original code is: 64
+The total lines of sliced code is: 22
+The deduction ratio is:65.62%
+===========  [Here are all the safe paths and used testcases]  ===========
+************** The safe path 1 ********************
+Timecost is: 459.0 ms
+The Ct is:  !((((((level) + 6) * 2) - (3)) + 4) > 20)
+The Dt is :true
+Ct && !(Dt):  !((((((level) + 6) * 2) - (3)) + 4) > 20) && !true, which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int level = 0;
+int factor = 0;
+    double result = HeatPredictor.predictHeat(level, factor);
+}
+************** The safe path 2 ********************
+Timecost is: 460.0 ms
+The Ct is:  !(factor <= 8) && ((((((level) + 6) * 2) - (3)) + 4) > 20)
+The Dt is :true
+Ct && !(Dt):  !(factor <= 8) && ((((((level) + 6) * 2) - (3)) + 4) > 20) && !true, which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int level = 32762;
+int factor = 12;
+    double result = HeatPredictor.predictHeat(level, factor);
+}
+************** The safe path 3 ********************
+Timecost is: 457.0 ms
+The Ct is:  !(level < 5) && (factor <= 8) && ((((((level) + 6) * 2) - (3)) + 4) > 20)
+The Dt is :true
+Ct && !(Dt):  !(level < 5) && (factor <= 8) && ((((((level) + 6) * 2) - (3)) + 4) > 20) && !true, which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int level = 32762;
+int factor = 0;
+    double result = HeatPredictor.predictHeat(level, factor);
+}
+
+
+===========  [Here are all the dangerous paths and the dangerous inputs ]  ===========
+************** The dangerous path 1 ********************
+The Ct is:  (level < 5) && (factor <= 8) && ((((((level) + 6) * 2) - (3)) + 4) > 20)
+The (Dt) is :((factor - 8) != 0)
+RE will be triggered under Ct && !(Dt):  (level < 5) && (factor <= 8) && ((((((level) + 6) * 2) - (3)) + 4) > 20) && !((factor - 8) != 0)
+The dangerous inputs in this path are as follows: 
+1. [factor=8,level=4] 

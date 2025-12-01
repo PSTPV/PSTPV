@@ -1,0 +1,35 @@
+===========  [Here are the slice info]  ===========
+The program name is : AreaCalculator
+The total lines of original code is: 29
+The total lines of sliced code is: 19
+The deduction ratio is:34.48%
+===========  [Here are all the safe paths and used testcases]  ===========
+************** The safe path 1 ********************
+Timecost is: 474.0 ms
+The Ct is:  !(((0) * (0)) <= (60) && ((0) * (0)) > (4)) && (length < 0)
+The Dt is :(((0) % 7) >= 0 && ((0) % 7) < 7)
+Ct && !(Dt):  !(((0) * (0)) <= (60) && ((0) * (0)) > (4)) && (length < 0) && !(((0) % 7) >= 0 && ((0) % 7) < 7), which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int length = -31734;
+    int result = AreaCalculator.computeAreaValue(length);
+}
+************** The safe path 2 ********************
+Timecost is: 469.0 ms
+The Ct is:  !((length * length) <= (60) && (length * length) > (4)) && !(length < 0)
+The Dt is :((length % 7) >= 0 && (length % 7) < 7)
+Ct && !(Dt):  !((length * length) <= (60) && (length * length) > (4)) && !(length < 0) && !((length % 7) >= 0 && (length % 7) < 7), which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int length = 0;
+    int result = AreaCalculator.computeAreaValue(length);
+}
+
+
+===========  [Here are all the dangerous paths and the dangerous inputs ]  ===========
+************** The dangerous path 1 ********************
+The Ct is:  ((length * length) <= (60) && (length * length) > (4)) && !(length < 0)
+The (Dt) is :((length) >= 0 && (length) < 7)
+RE will be triggered under Ct && !(Dt):  ((length * length) <= (60) && (length * length) > (4)) && !(length < 0) && !((length) >= 0 && (length) < 7)
+The dangerous inputs in this path are as follows: 
+1. [length=7] 

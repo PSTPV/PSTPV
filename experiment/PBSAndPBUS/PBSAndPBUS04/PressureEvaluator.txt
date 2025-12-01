@@ -1,0 +1,43 @@
+===========  [Here are the slice info]  ===========
+The program name is : PressureEvaluator
+The total lines of original code is: 56
+The total lines of sliced code is: 20
+The deduction ratio is:64.28%
+===========  [Here are all the safe paths and used testcases]  ===========
+************** The safe path 1 ********************
+Timecost is: 448.0 ms
+The Ct is:  !(factor > 0) && ((((((base) + 10) - factor / 2) * 3) - (5)) > 0 && (((((base) + 10) - factor / 2) * 3) - (5)) < 10 * (2))
+The Dt is :true
+Ct && !(Dt):  !(factor > 0) && ((((((base) + 10) - factor / 2) * 3) - (5)) > 0 && (((((base) + 10) - factor / 2) * 3) - (5)) < 10 * (2)) && !true, which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int base = -2;
+int factor = 0;
+    double result = PressureEvaluator.computePressure(base, factor);
+}
+************** The safe path 2 ********************
+Timecost is: 476.0 ms
+The Ct is:  !((((((base) + 10) - factor / 2) * 3) - (5)) > 0 && (((((base) + 10) - factor / 2) * 3) - (5)) < 10 * (2))
+The Dt is :true
+Ct && !(Dt):  !((((((base) + 10) - factor / 2) * 3) - (5)) > 0 && (((((base) + 10) - factor / 2) * 3) - (5)) < 10 * (2)) && !true, which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int base = 0;
+int factor = 0;
+    double result = PressureEvaluator.computePressure(base, factor);
+}
+
+
+===========  [Here are all the dangerous paths and the dangerous inputs ]  ===========
+************** The dangerous path 1 ********************
+The Ct is:  (factor > 0) && ((((((base) + 10) - factor / 2) * 3) - (5)) > 0 && (((((base) + 10) - factor / 2) * 3) - (5)) < 10 * (2))
+The (Dt) is :((factor - 2) != 0)
+RE will be triggered under Ct && !(Dt):  (factor > 0) && ((((((base) + 10) - factor / 2) * 3) - (5)) > 0 && (((((base) + 10) - factor / 2) * 3) - (5)) < 10 * (2)) && !((factor - 2) != 0)
+The dangerous inputs in this path are as follows: 
+1. [factor=2,base=-1] 
+2. [factor=2,base=-5] 
+3. [factor=2,base=-2] 
+4. [factor=2,base=-6] 
+5. [factor=2,base=-7] 
+6. [factor=2,base=-4] 
+7. [factor=2,base=-3] 

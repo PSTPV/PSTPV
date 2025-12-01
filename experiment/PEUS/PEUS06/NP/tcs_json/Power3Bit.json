@@ -1,0 +1,5 @@
+[{"testcaseMap":null,"mainMd":"public static void main(String[] args) {\nint n = 82;\n    int result = Power3Bit.power3Bit(n);\n}","logicExprOfPath":" !(n < 5) && (n > 0) && !(n < 0)","logicExprOfDT":"true","dangerousInput":false,"timeCostInMs":495.0}
+,{"testcaseMap":null,"mainMd":"public static void main(String[] args) {\nint n = -153;\n    int result = Power3Bit.power3Bit(n);\n}","logicExprOfPath":" !(-(n) < 5) && (-(n) > 0) && (n < 0)","logicExprOfDT":"true","dangerousInput":false,"timeCostInMs":468.0}
+,{"testcaseMap":null,"mainMd":"public static void main(String[] args) {\nint n = 0;\n    int result = Power3Bit.power3Bit(n);\n}","logicExprOfPath":" !(n > 0) && !(n < 0)","logicExprOfDT":"false","dangerousInput":false,"timeCostInMs":470.0}
+,{"testcaseMap":{"n ":" 0"},"mainMd":null,"logicExprOfPath":" !(n > 0) && !(n < 0)","logicExprOfDT":"false","dangerousInput":true,"timeCostInMs":0.0}
+]

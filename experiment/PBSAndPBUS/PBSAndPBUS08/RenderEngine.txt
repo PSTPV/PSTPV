@@ -1,0 +1,59 @@
+===========  [Here are the slice info]  ===========
+The program name is : RenderEngine
+The total lines of original code is: 48
+The total lines of sliced code is: 27
+The deduction ratio is:43.75%
+===========  [Here are all the safe paths and used testcases]  ===========
+************** The safe path 1 ********************
+Timecost is: 585.0 ms
+The Ct is:  ((resolution / 80 + 30) >= 40 && (resolution / 80 + 30) <= 80) && !(resolution > (4096)) && !(resolution < (480)) && !(0 < resolution && resolution < (480) - 200)
+The Dt is :((((resolution / 80 + 30) - 30) / 6) >= 0 && (((resolution / 80 + 30) - 30) / 6) < 9)
+Ct && !(Dt):  ((resolution / 80 + 30) >= 40 && (resolution / 80 + 30) <= 80) && !(resolution > (4096)) && !(resolution < (480)) && !(0 < resolution && resolution < (480) - 200) && !((((resolution / 80 + 30) - 30) / 6) >= 0 && (((resolution / 80 + 30) - 30) / 6) < 9), which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int resolution = 3456;
+    int result = RenderEngine.calculateFrameRate(resolution);
+}
+************** The safe path 2 ********************
+Timecost is: 499.0 ms
+The Ct is:  !((resolution / 80 + 30) >= 40 && (resolution / 80 + 30) <= 80) && !(resolution > (4096)) && !(resolution < (480)) && !(0 < resolution && resolution < (480) - 200)
+The Dt is :(((resolution / 80 + 30) % 9) >= 0 && ((resolution / 80 + 30) % 9) < 9)
+Ct && !(Dt):  !((resolution / 80 + 30) >= 40 && (resolution / 80 + 30) <= 80) && !(resolution > (4096)) && !(resolution < (480)) && !(0 < resolution && resolution < (480) - 200) && !(((resolution / 80 + 30) % 9) >= 0 && ((resolution / 80 + 30) % 9) < 9), which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int resolution = 504;
+    int result = RenderEngine.calculateFrameRate(resolution);
+}
+************** The safe path 3 ********************
+Timecost is: 530.0 ms
+The Ct is:  !((((4096)) / 80 + 30) >= 40 && (((4096)) / 80 + 30) <= 80) && (resolution > (4096)) && !(resolution < (480)) && !(0 < resolution && resolution < (480) - 200)
+The Dt is :(((((4096)) / 80 + 30) % 9) >= 0 && ((((4096)) / 80 + 30) % 9) < 9)
+Ct && !(Dt):  !((((4096)) / 80 + 30) >= 40 && (((4096)) / 80 + 30) <= 80) && (resolution > (4096)) && !(resolution < (480)) && !(0 < resolution && resolution < (480) - 200) && !(((((4096)) / 80 + 30) % 9) >= 0 && ((((4096)) / 80 + 30) % 9) < 9), which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int resolution = 24568;
+    int result = RenderEngine.calculateFrameRate(resolution);
+}
+************** The safe path 4 ********************
+Timecost is: 486.0 ms
+The Ct is:  !((((480)) / 80 + 30) >= 40 && (((480)) / 80 + 30) <= 80) && !(((480)) > (4096)) && (resolution < (480)) && !(0 < resolution && resolution < (480) - 200)
+The Dt is :(((((480)) / 80 + 30) % 9) >= 0 && ((((480)) / 80 + 30) % 9) < 9)
+Ct && !(Dt):  !((((480)) / 80 + 30) >= 40 && (((480)) / 80 + 30) <= 80) && !(((480)) > (4096)) && (resolution < (480)) && !(0 < resolution && resolution < (480) - 200) && !(((((480)) / 80 + 30) % 9) >= 0 && ((((480)) / 80 + 30) % 9) < 9), which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int resolution = 0;
+    int result = RenderEngine.calculateFrameRate(resolution);
+}
+************** The safe path 5 ********************
+Timecost is: 472.0 ms
+The Ct is:  (0 < resolution && resolution < (480) - 200)
+The Dt is :true
+Ct && !(Dt):  (0 < resolution && resolution < (480) - 200) && !true, which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int resolution = 256;
+    int result = RenderEngine.calculateFrameRate(resolution);
+}
+
+
+===========  [Here are all the dangerous paths and the dangerous inputs ]  ===========

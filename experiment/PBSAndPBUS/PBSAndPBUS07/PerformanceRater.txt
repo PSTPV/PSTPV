@@ -1,0 +1,49 @@
+===========  [Here are the slice info]  ===========
+The program name is : PerformanceRater
+The total lines of original code is: 62
+The total lines of sliced code is: 22
+The deduction ratio is:64.51%
+===========  [Here are all the safe paths and used testcases]  ===========
+************** The safe path 1 ********************
+Timecost is: 446.0 ms
+The Ct is:  (sales > (2000) * 10)
+The Dt is :true
+Ct && !(Dt):  (sales > (2000) * 10) && !true, which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int sales = 20088;
+    double result = PerformanceRater.calculateBonus(sales);
+}
+************** The safe path 2 ********************
+Timecost is: 469.0 ms
+The Ct is:  (sales > 10000) && !(sales < 0 || sales < 120) && !(sales > (2000) * 10)
+The Dt is :true
+Ct && !(Dt):  (sales > 10000) && !(sales < 0 || sales < 120) && !(sales > (2000) * 10) && !true, which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int sales = 16384;
+    double result = PerformanceRater.calculateBonus(sales);
+}
+************** The safe path 3 ********************
+Timecost is: 456.0 ms
+The Ct is:  !((sales / 125) == 0) && !(sales > 10000) && !(sales < 0 || sales < 120) && !(sales > (2000) * 10)
+The Dt is :true
+Ct && !(Dt):  !((sales / 125) == 0) && !(sales > 10000) && !(sales < 0 || sales < 120) && !(sales > (2000) * 10) && !true, which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int sales = 8192;
+    double result = PerformanceRater.calculateBonus(sales);
+}
+************** The safe path 4 ********************
+Timecost is: 449.0 ms
+The Ct is:  (sales < 0 || sales < 120) && !(sales > (2000) * 10)
+The Dt is :true
+Ct && !(Dt):  (sales < 0 || sales < 120) && !(sales > (2000) * 10) && !true, which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int sales = 0;
+    double result = PerformanceRater.calculateBonus(sales);
+}
+
+
+===========  [Here are all the dangerous paths and the dangerous inputs ]  ===========

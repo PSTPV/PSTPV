@@ -1,0 +1,3 @@
+[{"testcaseMap":null,"mainMd":"public static void main(String[] args) {\nint usage = 0;\n    int result = EnergyMonitor.calculateConsumption(usage);\n}","logicExprOfPath":" !((usage / 100) == 2) && !((usage / 100) < 0) && !(usage > 400)","logicExprOfDT":"((usage / 100) >= 0 && (usage / 100) < 4)","dangerousInput":false,"timeCostInMs":450.0}
+,{"testcaseMap":{"usage ":" 400"},"mainMd":null,"logicExprOfPath":" !((usage / 100) == 2) && !((usage / 100) < 0) && !(usage > 400)","logicExprOfDT":"((usage / 100) >= 0 && (usage / 100) < 4)","dangerousInput":true,"timeCostInMs":0.0}
+]

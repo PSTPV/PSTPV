@@ -1,0 +1,71 @@
+===========  [Here are the slice info]  ===========
+The program name is : PressureMonitor
+The total lines of original code is: 31
+The total lines of sliced code is: 15
+The deduction ratio is:51.61%
+===========  [Here are all the safe paths and used testcases]  ===========
+************** The safe path 1 ********************
+Timecost is: 466.0 ms
+The Ct is:  !((((limit + 3) - 2) - 2) > 0 && (((limit + 3) - 2) - 2) < 4) && !(pressure > 5 && pressure < 8) && (((limit + 3) - 2) > 0 && ((limit + 3) - 2) < 4) && !(pressure > 5 && pressure < 8) && ((limit + 3) > 0 && (limit + 3) < 4) && (limit == 0 || limit == 2)
+The Dt is :((((limit + 3) - 2) - 2) != 0)
+Ct && !(Dt):  !((((limit + 3) - 2) - 2) > 0 && (((limit + 3) - 2) - 2) < 4) && !(pressure > 5 && pressure < 8) && (((limit + 3) - 2) > 0 && ((limit + 3) - 2) < 4) && !(pressure > 5 && pressure < 8) && ((limit + 3) > 0 && (limit + 3) < 4) && (limit == 0 || limit == 2) && !((((limit + 3) - 2) - 2) != 0), which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int pressure = 36;
+int limit = 0;
+PressureMonitor.evaluatePressure(pressure, limit);
+}
+************** The safe path 2 ********************
+Timecost is: 473.0 ms
+The Ct is:  !((limit + 3) > 0 && (limit + 3) < 4) && (limit == 0 || limit == 2)
+The Dt is :((limit + 3) != 0)
+Ct && !(Dt):  !((limit + 3) > 0 && (limit + 3) < 4) && (limit == 0 || limit == 2) && !((limit + 3) != 0), which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int pressure = 147;
+int limit = 2;
+PressureMonitor.evaluatePressure(pressure, limit);
+}
+************** The safe path 3 ********************
+Timecost is: 464.0 ms
+The Ct is:  !(((limit - 2) - 2) > 0 && ((limit - 2) - 2) < 4) && !(pressure > 5 && pressure < 8) && ((limit - 2) > 0 && (limit - 2) < 4) && !(pressure > 5 && pressure < 8) && (limit > 0 && limit < 4) && !(limit == 0 || limit == 2)
+The Dt is :(((limit - 2) - 2) != 0)
+Ct && !(Dt):  !(((limit - 2) - 2) > 0 && ((limit - 2) - 2) < 4) && !(pressure > 5 && pressure < 8) && ((limit - 2) > 0 && (limit - 2) < 4) && !(pressure > 5 && pressure < 8) && (limit > 0 && limit < 4) && !(limit == 0 || limit == 2) && !(((limit - 2) - 2) != 0), which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int pressure = -73;
+int limit = 3;
+PressureMonitor.evaluatePressure(pressure, limit);
+}
+************** The safe path 4 ********************
+Timecost is: 628.0 ms
+The Ct is:  !(limit > 0 && limit < 4) && !(limit == 0 || limit == 2)
+The Dt is :(limit != 0)
+Ct && !(Dt):  !(limit > 0 && limit < 4) && !(limit == 0 || limit == 2) && !(limit != 0), which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int pressure = -103;
+int limit = -95;
+PressureMonitor.evaluatePressure(pressure, limit);
+}
+************** The safe path 5 ********************
+Timecost is: 461.0 ms
+The Ct is:  !((limit - 2) > 0 && (limit - 2) < 4) && !(pressure > 5 && pressure < 8) && (limit > 0 && limit < 4) && !(limit == 0 || limit == 2)
+The Dt is :((limit - 2) != 0)
+Ct && !(Dt):  !((limit - 2) > 0 && (limit - 2) < 4) && !(pressure > 5 && pressure < 8) && (limit > 0 && limit < 4) && !(limit == 0 || limit == 2) && !((limit - 2) != 0), which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int pressure = -112;
+int limit = 1;
+PressureMonitor.evaluatePressure(pressure, limit);
+}
+
+
+===========  [Here are all the dangerous paths and the dangerous inputs ]  ===========
+************** The dangerous path 1 ********************
+The Ct is:  !(((limit - 2) - 1) > 0 && ((limit - 2) - 1) < 4) && (pressure > 5 && pressure < 8) && (limit > 0 && limit < 4) && !(limit == 0 || limit == 2)
+The (Dt) is :(((limit - 2) - 1) != 0)
+RE will be triggered under Ct && !(Dt):  !(((limit - 2) - 1) > 0 && ((limit - 2) - 1) < 4) && (pressure > 5 && pressure < 8) && (limit > 0 && limit < 4) && !(limit == 0 || limit == 2) && !(((limit - 2) - 1) != 0)
+The dangerous inputs in this path are as follows: 
+1. [limit=3,pressure=6] 
+2. [limit=3,pressure=7] 

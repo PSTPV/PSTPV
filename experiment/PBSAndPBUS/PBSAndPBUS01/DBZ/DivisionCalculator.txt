@@ -1,0 +1,50 @@
+===========  [Here are the slice info]  ===========
+The program name is : DivisionCalculator
+The total lines of original code is: 46
+The total lines of sliced code is: 17
+The deduction ratio is:63.04%
+===========  [Here are all the safe paths and used testcases]  ===========
+************** The safe path 1 ********************
+Timecost is: 452.0 ms
+The Ct is:  (numerator < ((((((0) + 1) + 1) + 1) + 1) + 1) || (1) > 7) && (denominator <= 0) && !(((((((0) + 1) + 1) + 1) + 1) + 1) < 5) && ((((((0) + 1) + 1) + 1) + 1) < 5) && (((((0) + 1) + 1) + 1) < 5) && ((((0) + 1) + 1) < 5) && (((0) + 1) < 5) && ((0) < 5)
+The Dt is :true
+Ct && !(Dt):  (numerator < ((((((0) + 1) + 1) + 1) + 1) + 1) || (1) > 7) && (denominator <= 0) && !(((((((0) + 1) + 1) + 1) + 1) + 1) < 5) && ((((((0) + 1) + 1) + 1) + 1) < 5) && (((((0) + 1) + 1) + 1) < 5) && ((((0) + 1) + 1) < 5) && (((0) + 1) < 5) && ((0) < 5) && !true, which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int numerator = -33;
+int denominator = -61;
+    double result = DivisionCalculator.calculateRatio(numerator, denominator);
+}
+************** The safe path 2 ********************
+Timecost is: 473.0 ms
+The Ct is:  !(numerator < ((((((0) + 1) + 1) + 1) + 1) + 1) || (1) > 7) && (denominator <= 0) && !(((((((0) + 1) + 1) + 1) + 1) + 1) < 5) && ((((((0) + 1) + 1) + 1) + 1) < 5) && (((((0) + 1) + 1) + 1) < 5) && ((((0) + 1) + 1) < 5) && (((0) + 1) < 5) && ((0) < 5)
+The Dt is :((numerator - (1)) != 0)
+Ct && !(Dt):  !(numerator < ((((((0) + 1) + 1) + 1) + 1) + 1) || (1) > 7) && (denominator <= 0) && !(((((((0) + 1) + 1) + 1) + 1) + 1) < 5) && ((((((0) + 1) + 1) + 1) + 1) < 5) && (((((0) + 1) + 1) + 1) < 5) && ((((0) + 1) + 1) < 5) && (((0) + 1) < 5) && ((0) < 5) && !((numerator - (1)) != 0), which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int numerator = 5;
+int denominator = -97;
+    double result = DivisionCalculator.calculateRatio(numerator, denominator);
+}
+************** The safe path 3 ********************
+Timecost is: 464.0 ms
+The Ct is:  (numerator < ((((((0) + 1) + 1) + 1) + 1) + 1) || denominator > 7) && !(denominator <= 0) && !(((((((0) + 1) + 1) + 1) + 1) + 1) < 5) && ((((((0) + 1) + 1) + 1) + 1) < 5) && (((((0) + 1) + 1) + 1) < 5) && ((((0) + 1) + 1) < 5) && (((0) + 1) < 5) && ((0) < 5)
+The Dt is :true
+Ct && !(Dt):  (numerator < ((((((0) + 1) + 1) + 1) + 1) + 1) || denominator > 7) && !(denominator <= 0) && !(((((((0) + 1) + 1) + 1) + 1) + 1) < 5) && ((((((0) + 1) + 1) + 1) + 1) < 5) && (((((0) + 1) + 1) + 1) < 5) && ((((0) + 1) + 1) < 5) && (((0) + 1) < 5) && ((0) < 5) && !true, which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int numerator = 68;
+int denominator = 31;
+    double result = DivisionCalculator.calculateRatio(numerator, denominator);
+}
+
+
+===========  [Here are all the dangerous paths and the dangerous inputs ]  ===========
+************** The dangerous path 1 ********************
+The Ct is:  !(numerator < ((((((0) + 1) + 1) + 1) + 1) + 1) || denominator > 7) && !(denominator <= 0) && !(((((((0) + 1) + 1) + 1) + 1) + 1) < 5) && ((((((0) + 1) + 1) + 1) + 1) < 5) && (((((0) + 1) + 1) + 1) < 5) && ((((0) + 1) + 1) < 5) && (((0) + 1) < 5) && ((0) < 5)
+The (Dt) is :((numerator - denominator) != 0)
+RE will be triggered under Ct && !(Dt):  !(numerator < ((((((0) + 1) + 1) + 1) + 1) + 1) || denominator > 7) && !(denominator <= 0) && !(((((((0) + 1) + 1) + 1) + 1) + 1) < 5) && ((((((0) + 1) + 1) + 1) + 1) < 5) && (((((0) + 1) + 1) + 1) < 5) && ((((0) + 1) + 1) < 5) && (((0) + 1) < 5) && ((0) < 5) && !((numerator - denominator) != 0)
+The dangerous inputs in this path are as follows: 
+1. [denominator=5,numerator=5] 
+2. [denominator=6,numerator=6] 
+3. [denominator=7,numerator=7] 

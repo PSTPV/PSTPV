@@ -1,0 +1,15 @@
+===========  [Here are the slice info]  ===========
+The program name is : TemperatureAnalyzer
+The total lines of original code is: 44
+The total lines of sliced code is: 16
+The deduction ratio is:63.63%
+===========  [Here are all the safe paths and used testcases]  ===========
+
+
+===========  [Here are all the dangerous paths and the dangerous inputs ]  ===========
+************** The dangerous path 1 ********************
+The Ct is:  (((((96) + modifier) - (5)) * 2) > 50)
+The (Dt) is :(((modifier - 2) + 1) != 0)
+RE will be triggered under Ct && !(Dt):  (((((96) + modifier) - (5)) * 2) > 50) && !(((modifier - 2) + 1) != 0)
+The dangerous inputs in this path are as follows: 
+1. [modifier=1] 

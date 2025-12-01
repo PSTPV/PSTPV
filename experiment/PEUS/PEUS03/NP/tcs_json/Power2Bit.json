@@ -1,0 +1,6 @@
+[{"testcaseMap":null,"mainMd":"public static void main(String[] args) {\nint n = 144;\n    int result = Power2Bit.power2Bit(n);\n}","logicExprOfPath":" !(n < 6) && (n > 0) && !(n < 0)","logicExprOfDT":"true","dangerousInput":false,"timeCostInMs":489.0}
+,{"testcaseMap":null,"mainMd":"public static void main(String[] args) {\nint n = -103;\n    int result = Power2Bit.power2Bit(n);\n}","logicExprOfPath":" !(-(n) < 6) && (-(n) > 0) && (n < 0)","logicExprOfDT":"true","dangerousInput":false,"timeCostInMs":477.0}
+,{"testcaseMap":null,"mainMd":"public static void main(String[] args) {\nint n = 5;\n    int result = Power2Bit.power2Bit(n);\n}","logicExprOfPath":" !(((((((0) + 1) + 1) + 1) + 1) + 1) < n) && ((((((0) + 1) + 1) + 1) + 1) < n) && (((((0) + 1) + 1) + 1) < n) && ((((0) + 1) + 1) < n) && (((0) + 1) < n) && ((0) < n) && (n < 6) && (n > 0) && !(n < 0)","logicExprOfDT":"true","dangerousInput":false,"timeCostInMs":483.0}
+,{"testcaseMap":null,"mainMd":"public static void main(String[] args) {\nint n = 0;\n    int result = Power2Bit.power2Bit(n);\n}","logicExprOfPath":" !(n > 0) && !(n < 0)","logicExprOfDT":"false","dangerousInput":false,"timeCostInMs":486.0}
+,{"testcaseMap":{"n ":" 0"},"mainMd":null,"logicExprOfPath":" !(n > 0) && !(n < 0)","logicExprOfDT":"false","dangerousInput":true,"timeCostInMs":0.0}
+]

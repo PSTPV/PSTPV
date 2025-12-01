@@ -1,0 +1,40 @@
+===========  [Here are the slice info]  ===========
+The program name is : DensityEvaluator
+The total lines of original code is: 65
+The total lines of sliced code is: 23
+The deduction ratio is:64.61%
+===========  [Here are all the safe paths and used testcases]  ===========
+************** The safe path 1 ********************
+Timecost is: 460.0 ms
+The Ct is:  !(volume > 2 && mass < 20) && ((((((mass) + 5) * 2) - (4)) + 3) > 40)
+The Dt is :true
+Ct && !(Dt):  !(volume > 2 && mass < 20) && ((((((mass) + 5) * 2) - (4)) + 3) > 40) && !true, which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int mass = 32764;
+int volume = 0;
+    double result = DensityEvaluator.calculateDensity(mass, volume);
+}
+************** The safe path 2 ********************
+Timecost is: 462.0 ms
+The Ct is:  !((((((mass) + 5) * 2) - (4)) + 3) > 40)
+The Dt is :true
+Ct && !(Dt):  !((((((mass) + 5) * 2) - (4)) + 3) > 40) && !true, which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int mass = 0;
+int volume = 0;
+    double result = DensityEvaluator.calculateDensity(mass, volume);
+}
+
+
+===========  [Here are all the dangerous paths and the dangerous inputs ]  ===========
+************** The dangerous path 1 ********************
+The Ct is:  (volume < 8) && (volume > 2 && mass < 20) && ((((((mass) + 5) * 2) - (4)) + 3) > 40)
+The (Dt) is :((volume - 5) != 0)
+RE will be triggered under Ct && !(Dt):  (volume < 8) && (volume > 2 && mass < 20) && ((((((mass) + 5) * 2) - (4)) + 3) > 40) && !((volume - 5) != 0)
+The dangerous inputs in this path are as follows: 
+1. [mass=16,volume=5] 
+2. [mass=17,volume=5] 
+3. [mass=18,volume=5] 
+4. [mass=19,volume=5] 

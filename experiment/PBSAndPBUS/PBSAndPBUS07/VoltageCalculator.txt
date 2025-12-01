@@ -1,0 +1,25 @@
+===========  [Here are the slice info]  ===========
+The program name is : VoltageCalculator
+The total lines of original code is: 56
+The total lines of sliced code is: 20
+The deduction ratio is:64.28%
+===========  [Here are all the safe paths and used testcases]  ===========
+************** The safe path 1 ********************
+Timecost is: 464.0 ms
+The Ct is:  !(((((((22)) + resistance) * 2) - (3)) + 5) > 60)
+The Dt is :true
+Ct && !(Dt):  !(((((((22)) + resistance) * 2) - (3)) + 5) > 60) && !true, which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int resistance = 0;
+    double result = VoltageCalculator.computeVoltage(resistance);
+}
+
+
+===========  [Here are all the dangerous paths and the dangerous inputs ]  ===========
+************** The dangerous path 1 ********************
+The Ct is:  (resistance != 0) && (((((((22)) + resistance) * 2) - (3)) + 5) > 60)
+The (Dt) is :((resistance - 8) != 0)
+RE will be triggered under Ct && !(Dt):  (resistance != 0) && (((((((22)) + resistance) * 2) - (3)) + 5) > 60) && !((resistance - 8) != 0)
+The dangerous inputs in this path are as follows: 
+1. [resistance=8] 

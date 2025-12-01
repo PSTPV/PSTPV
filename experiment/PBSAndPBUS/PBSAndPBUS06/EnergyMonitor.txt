@@ -1,0 +1,15 @@
+===========  [Here are the slice info]  ===========
+The program name is : EnergyMonitor
+The total lines of original code is: 35
+The total lines of sliced code is: 19
+The deduction ratio is:45.71%
+===========  [Here are all the safe paths and used testcases]  ===========
+
+
+===========  [Here are all the dangerous paths and the dangerous inputs ]  ===========
+************** The dangerous path 1 ********************
+The Ct is:  !((usage / 100) == 2) && !((usage / 100) < 0) && !(usage > 400)
+The (Dt) is :((usage / 100) >= 0 && (usage / 100) < 4)
+RE will be triggered under Ct && !(Dt):  !((usage / 100) == 2) && !((usage / 100) < 0) && !(usage > 400) && !((usage / 100) >= 0 && (usage / 100) < 4)
+The dangerous inputs in this path are as follows: 
+1. [usage=400] 

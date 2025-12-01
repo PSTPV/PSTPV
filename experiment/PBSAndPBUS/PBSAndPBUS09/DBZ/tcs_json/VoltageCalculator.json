@@ -1,0 +1,4 @@
+[{"testcaseMap":null,"mainMd":"public static void main(String[] args) {\nint resistance = 0;\n    double result = VoltageCalculator.computeVoltage(resistance);\n}","logicExprOfPath":" !(((((((22)) + resistance) * 2) - (3)) + 5) > 60)","logicExprOfDT":"true","dangerousInput":false,"timeCostInMs":462.0}
+,{"testcaseMap":null,"mainMd":"public static void main(String[] args) {\nint resistance = 40;\n    double result = VoltageCalculator.computeVoltage(resistance);\n}","logicExprOfPath":" (resistance != 0) && (((((((22)) + resistance) * 2) - (3)) + 5) > 60)","logicExprOfDT":"((resistance - 8) != 0)","dangerousInput":false,"timeCostInMs":464.0}
+,{"testcaseMap":{"resistance ":" 8"},"mainMd":null,"logicExprOfPath":" (resistance != 0) && (((((((22)) + resistance) * 2) - (3)) + 5) > 60)","logicExprOfDT":"((resistance - 8) != 0)","dangerousInput":true,"timeCostInMs":0.0}
+]

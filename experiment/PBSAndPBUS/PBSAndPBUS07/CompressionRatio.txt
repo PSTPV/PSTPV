@@ -1,0 +1,58 @@
+===========  [Here are the slice info]  ===========
+The program name is : CompressionRatio
+The total lines of original code is: 45
+The total lines of sliced code is: 24
+The deduction ratio is:46.66%
+===========  [Here are all the safe paths and used testcases]  ===========
+************** The safe path 1 ********************
+Timecost is: 479.0 ms
+The Ct is:  !(((400) / 4 + 30) >= 45 && ((400) / 4 + 30) <= 70) && (fileSize > 400) && !(fileSize < 50)
+The Dt is :true
+Ct && !(Dt):  !(((400) / 4 + 30) >= 45 && ((400) / 4 + 30) <= 70) && (fileSize > 400) && !(fileSize < 50) && !true, which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int fileSize = 24504;
+    String result = CompressionRatio.calculateRatio(fileSize);
+}
+************** The safe path 2 ********************
+Timecost is: 470.0 ms
+The Ct is:  !(((50) / 4 + 30) >= 45 && ((50) / 4 + 30) <= 70) && !((50) > 400) && (fileSize < 50)
+The Dt is :true
+Ct && !(Dt):  !(((50) / 4 + 30) >= 45 && ((50) / 4 + 30) <= 70) && !((50) > 400) && (fileSize < 50) && !true, which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int fileSize = 0;
+    String result = CompressionRatio.calculateRatio(fileSize);
+}
+************** The safe path 3 ********************
+Timecost is: 460.0 ms
+The Ct is:  !((fileSize / 4 + 30) >= 45 && (fileSize / 4 + 30) <= 70) && !(fileSize > 400) && !(fileSize < 50)
+The Dt is :true
+Ct && !(Dt):  !((fileSize / 4 + 30) >= 45 && (fileSize / 4 + 30) <= 70) && !(fileSize > 400) && !(fileSize < 50) && !true, which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int fileSize = 56;
+    String result = CompressionRatio.calculateRatio(fileSize);
+}
+************** The safe path 4 ********************
+Timecost is: 462.0 ms
+The Ct is:  ((((fileSize / 4 + 30) - 45) / 5) < 5) && ((fileSize / 4 + 30) >= 45 && (fileSize / 4 + 30) <= 70) && !(fileSize > 400) && !(fileSize < 50)
+The Dt is :true
+Ct && !(Dt):  ((((fileSize / 4 + 30) - 45) / 5) < 5) && ((fileSize / 4 + 30) >= 45 && (fileSize / 4 + 30) <= 70) && !(fileSize > 400) && !(fileSize < 50) && !true, which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int fileSize = 145;
+    String result = CompressionRatio.calculateRatio(fileSize);
+}
+
+
+===========  [Here are all the dangerous paths and the dangerous inputs ]  ===========
+************** The dangerous path 1 ********************
+The Ct is:  !((((fileSize / 4 + 30) - 45) / 5) < 5) && ((fileSize / 4 + 30) >= 45 && (fileSize / 4 + 30) <= 70) && !(fileSize > 400) && !(fileSize < 50)
+The (Dt) is :false
+RE will be triggered under Ct && !(Dt):  !((((fileSize / 4 + 30) - 45) / 5) < 5) && ((fileSize / 4 + 30) >= 45 && (fileSize / 4 + 30) <= 70) && !(fileSize > 400) && !(fileSize < 50) && !false
+The dangerous inputs in this path are as follows: 
+1. [fileSize=162] 
+2. [fileSize=163] 
+3. [fileSize=161] 
+4. [fileSize=160] 

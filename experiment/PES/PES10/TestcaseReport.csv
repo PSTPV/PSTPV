@@ -1,0 +1,6 @@
+Program,Safe Testcase Num,Average Time Cost (ms),Safety Status
+MixCollectSum_2,10,495.300,safe
+MultiPower2Ratio,40,804.100,safe
+MixCollectSum,16,595.125,safe
+Power3Bit_S,17,469.588,safe
+Power2Bit_S,13,466.538,safe

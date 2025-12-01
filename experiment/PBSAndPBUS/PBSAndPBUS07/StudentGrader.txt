@@ -1,0 +1,85 @@
+===========  [Here are the slice info]  ===========
+The program name is : StudentGrader
+The total lines of original code is: 38
+The total lines of sliced code is: 28
+The deduction ratio is:26.31%
+===========  [Here are all the safe paths and used testcases]  ===========
+************** The safe path 1 ********************
+Timecost is: 466.0 ms
+The Ct is:  (score > (90)) && !(score < (40))
+The Dt is :true
+Ct && !(Dt):  (score > (90)) && !(score < (40)) && !true, which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int score = 162;
+    String result = StudentGrader.calculateGrade(score);
+}
+************** The safe path 2 ********************
+Timecost is: 467.0 ms
+The Ct is:  !((score - 10) > (40)) && (score > (40)) && (score < (90)) && !(score > (90)) && !(score < (40))
+The Dt is :true
+Ct && !(Dt):  !((score - 10) > (40)) && (score > (40)) && (score < (90)) && !(score > (90)) && !(score < (40)) && !true, which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int score = 46;
+    String result = StudentGrader.calculateGrade(score);
+}
+************** The safe path 3 ********************
+Timecost is: 475.0 ms
+The Ct is:  !(((40)) > (40)) && (((40)) < (90)) && !(((40)) > (90)) && (score < (40))
+The Dt is :true
+Ct && !(Dt):  !(((40)) > (40)) && (((40)) < (90)) && !(((40)) > (90)) && (score < (40)) && !true, which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int score = -103;
+    String result = StudentGrader.calculateGrade(score);
+}
+************** The safe path 4 ********************
+Timecost is: 465.0 ms
+The Ct is:  !(((score - 10) - 10) > (40)) && ((score - 10) > (40)) && (score > (40)) && (score < (90)) && !(score > (90)) && !(score < (40))
+The Dt is :true
+Ct && !(Dt):  !(((score - 10) - 10) > (40)) && ((score - 10) > (40)) && (score > (40)) && (score < (90)) && !(score > (90)) && !(score < (40)) && !true, which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int score = 51;
+    String result = StudentGrader.calculateGrade(score);
+}
+************** The safe path 5 ********************
+Timecost is: 467.0 ms
+The Ct is:  !((((score - 10) - 10) - 10) > (40)) && (((score - 10) - 10) > (40)) && ((score - 10) > (40)) && (score > (40)) && (score < (90)) && !(score > (90)) && !(score < (40))
+The Dt is :true
+Ct && !(Dt):  !((((score - 10) - 10) - 10) > (40)) && (((score - 10) - 10) > (40)) && ((score - 10) > (40)) && (score > (40)) && (score < (90)) && !(score > (90)) && !(score < (40)) && !true, which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int score = 70;
+    String result = StudentGrader.calculateGrade(score);
+}
+************** The safe path 6 ********************
+Timecost is: 457.0 ms
+The Ct is:  !((((((score - 10) - 10) - 10) - 10) - 10) > (40)) && (((((score - 10) - 10) - 10) - 10) > (40)) && ((((score - 10) - 10) - 10) > (40)) && (((score - 10) - 10) > (40)) && ((score - 10) > (40)) && (score > (40)) && (score < (90)) && !(score > (90)) && !(score < (40))
+The Dt is :true
+Ct && !(Dt):  !((((((score - 10) - 10) - 10) - 10) - 10) > (40)) && (((((score - 10) - 10) - 10) - 10) > (40)) && ((((score - 10) - 10) - 10) > (40)) && (((score - 10) - 10) > (40)) && ((score - 10) > (40)) && (score > (40)) && (score < (90)) && !(score > (90)) && !(score < (40)) && !true, which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int score = 89;
+    String result = StudentGrader.calculateGrade(score);
+}
+************** The safe path 7 ********************
+Timecost is: 467.0 ms
+The Ct is:  !(((((score - 10) - 10) - 10) - 10) > (40)) && ((((score - 10) - 10) - 10) > (40)) && (((score - 10) - 10) > (40)) && ((score - 10) > (40)) && (score > (40)) && (score < (90)) && !(score > (90)) && !(score < (40))
+The Dt is :true
+Ct && !(Dt):  !(((((score - 10) - 10) - 10) - 10) > (40)) && ((((score - 10) - 10) - 10) > (40)) && (((score - 10) - 10) > (40)) && ((score - 10) > (40)) && (score > (40)) && (score < (90)) && !(score > (90)) && !(score < (40)) && !true, which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int score = 77;
+    String result = StudentGrader.calculateGrade(score);
+}
+
+
+===========  [Here are all the dangerous paths and the dangerous inputs ]  ===========
+************** The dangerous path 1 ********************
+The Ct is:  !(score < (90)) && !(score > (90)) && !(score < (40))
+The (Dt) is :false
+RE will be triggered under Ct && !(Dt):  !(score < (90)) && !(score > (90)) && !(score < (40)) && !false
+The dangerous inputs in this path are as follows: 
+1. [score=90] 

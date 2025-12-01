@@ -1,0 +1,135 @@
+===========  [Here are the slice info]  ===========
+The program name is : Power2Bit
+The total lines of original code is: 32
+The total lines of sliced code is: 26
+The deduction ratio is:18.75%
+===========  [Here are all the safe paths and used testcases]  ===========
+************** The safe path 1 ********************
+Timecost is: 469.0 ms
+The Ct is:  !((((0) + 1) + 1) < -(n)) && (((0) + 1) < -(n)) && ((0) < -(n)) && (-(n) < 6) && (-(n) > 0) && (n < 0)
+The Dt is :true
+Ct && !(Dt):  !((((0) + 1) + 1) < -(n)) && (((0) + 1) < -(n)) && ((0) < -(n)) && (-(n) < 6) && (-(n) > 0) && (n < 0) && !true, which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int n = -2;
+    int result = Power2Bit.power2Bit(n);
+}
+************** The safe path 2 ********************
+Timecost is: 475.0 ms
+The Ct is:  !(((0) + 1) < n) && ((0) < n) && (n < 6) && (n > 0) && !(n < 0)
+The Dt is :true
+Ct && !(Dt):  !(((0) + 1) < n) && ((0) < n) && (n < 6) && (n > 0) && !(n < 0) && !true, which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int n = 1;
+    int result = Power2Bit.power2Bit(n);
+}
+************** The safe path 3 ********************
+Timecost is: 461.0 ms
+The Ct is:  !(((0) + 1) < -(n)) && ((0) < -(n)) && (-(n) < 6) && (-(n) > 0) && (n < 0)
+The Dt is :true
+Ct && !(Dt):  !(((0) + 1) < -(n)) && ((0) < -(n)) && (-(n) < 6) && (-(n) > 0) && (n < 0) && !true, which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int n = -1;
+    int result = Power2Bit.power2Bit(n);
+}
+************** The safe path 4 ********************
+Timecost is: 480.0 ms
+The Ct is:  !(((((0) + 1) + 1) + 1) < n) && ((((0) + 1) + 1) < n) && (((0) + 1) < n) && ((0) < n) && (n < 6) && (n > 0) && !(n < 0)
+The Dt is :true
+Ct && !(Dt):  !(((((0) + 1) + 1) + 1) < n) && ((((0) + 1) + 1) < n) && (((0) + 1) < n) && ((0) < n) && (n < 6) && (n > 0) && !(n < 0) && !true, which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int n = 3;
+    int result = Power2Bit.power2Bit(n);
+}
+************** The safe path 5 ********************
+Timecost is: 478.0 ms
+The Ct is:  !(n < 6) && (n > 0) && !(n < 0)
+The Dt is :true
+Ct && !(Dt):  !(n < 6) && (n > 0) && !(n < 0) && !true, which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int n = 150;
+    int result = Power2Bit.power2Bit(n);
+}
+************** The safe path 6 ********************
+Timecost is: 471.0 ms
+The Ct is:  !(((((((0) + 1) + 1) + 1) + 1) + 1) < -(n)) && ((((((0) + 1) + 1) + 1) + 1) < -(n)) && (((((0) + 1) + 1) + 1) < -(n)) && ((((0) + 1) + 1) < -(n)) && (((0) + 1) < -(n)) && ((0) < -(n)) && (-(n) < 6) && (-(n) > 0) && (n < 0)
+The Dt is :true
+Ct && !(Dt):  !(((((((0) + 1) + 1) + 1) + 1) + 1) < -(n)) && ((((((0) + 1) + 1) + 1) + 1) < -(n)) && (((((0) + 1) + 1) + 1) < -(n)) && ((((0) + 1) + 1) < -(n)) && (((0) + 1) < -(n)) && ((0) < -(n)) && (-(n) < 6) && (-(n) > 0) && (n < 0) && !true, which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int n = -5;
+    int result = Power2Bit.power2Bit(n);
+}
+************** The safe path 7 ********************
+Timecost is: 483.0 ms
+The Ct is:  !(((((((0) + 1) + 1) + 1) + 1) + 1) < n) && ((((((0) + 1) + 1) + 1) + 1) < n) && (((((0) + 1) + 1) + 1) < n) && ((((0) + 1) + 1) < n) && (((0) + 1) < n) && ((0) < n) && (n < 6) && (n > 0) && !(n < 0)
+The Dt is :true
+Ct && !(Dt):  !(((((((0) + 1) + 1) + 1) + 1) + 1) < n) && ((((((0) + 1) + 1) + 1) + 1) < n) && (((((0) + 1) + 1) + 1) < n) && ((((0) + 1) + 1) < n) && (((0) + 1) < n) && ((0) < n) && (n < 6) && (n > 0) && !(n < 0) && !true, which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int n = 5;
+    int result = Power2Bit.power2Bit(n);
+}
+************** The safe path 8 ********************
+Timecost is: 479.0 ms
+The Ct is:  !((((((0) + 1) + 1) + 1) + 1) < -(n)) && (((((0) + 1) + 1) + 1) < -(n)) && ((((0) + 1) + 1) < -(n)) && (((0) + 1) < -(n)) && ((0) < -(n)) && (-(n) < 6) && (-(n) > 0) && (n < 0)
+The Dt is :true
+Ct && !(Dt):  !((((((0) + 1) + 1) + 1) + 1) < -(n)) && (((((0) + 1) + 1) + 1) < -(n)) && ((((0) + 1) + 1) < -(n)) && (((0) + 1) < -(n)) && ((0) < -(n)) && (-(n) < 6) && (-(n) > 0) && (n < 0) && !true, which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int n = -4;
+    int result = Power2Bit.power2Bit(n);
+}
+************** The safe path 9 ********************
+Timecost is: 474.0 ms
+The Ct is:  !((((0) + 1) + 1) < n) && (((0) + 1) < n) && ((0) < n) && (n < 6) && (n > 0) && !(n < 0)
+The Dt is :true
+Ct && !(Dt):  !((((0) + 1) + 1) < n) && (((0) + 1) < n) && ((0) < n) && (n < 6) && (n > 0) && !(n < 0) && !true, which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int n = 2;
+    int result = Power2Bit.power2Bit(n);
+}
+************** The safe path 10 ********************
+Timecost is: 473.0 ms
+The Ct is:  !((((((0) + 1) + 1) + 1) + 1) < n) && (((((0) + 1) + 1) + 1) < n) && ((((0) + 1) + 1) < n) && (((0) + 1) < n) && ((0) < n) && (n < 6) && (n > 0) && !(n < 0)
+The Dt is :true
+Ct && !(Dt):  !((((((0) + 1) + 1) + 1) + 1) < n) && (((((0) + 1) + 1) + 1) < n) && ((((0) + 1) + 1) < n) && (((0) + 1) < n) && ((0) < n) && (n < 6) && (n > 0) && !(n < 0) && !true, which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int n = 4;
+    int result = Power2Bit.power2Bit(n);
+}
+************** The safe path 11 ********************
+Timecost is: 469.0 ms
+The Ct is:  !(-(n) < 6) && (-(n) > 0) && (n < 0)
+The Dt is :true
+Ct && !(Dt):  !(-(n) < 6) && (-(n) > 0) && (n < 0) && !true, which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int n = -97;
+    int result = Power2Bit.power2Bit(n);
+}
+************** The safe path 12 ********************
+Timecost is: 458.0 ms
+The Ct is:  !(((((0) + 1) + 1) + 1) < -(n)) && ((((0) + 1) + 1) < -(n)) && (((0) + 1) < -(n)) && ((0) < -(n)) && (-(n) < 6) && (-(n) > 0) && (n < 0)
+The Dt is :true
+Ct && !(Dt):  !(((((0) + 1) + 1) + 1) < -(n)) && ((((0) + 1) + 1) < -(n)) && (((0) + 1) < -(n)) && ((0) < -(n)) && (-(n) < 6) && (-(n) > 0) && (n < 0) && !true, which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int n = -3;
+    int result = Power2Bit.power2Bit(n);
+}
+
+
+===========  [Here are all the dangerous paths and the dangerous inputs ]  ===========
+************** The dangerous path 1 ********************
+The Ct is:  !(n > 0) && !(n < 0)
+The (Dt) is :false
+RE will be triggered under Ct && !(Dt):  !(n > 0) && !(n < 0) && !false
+The dangerous inputs in this path are as follows: 
+1. [n=0] 

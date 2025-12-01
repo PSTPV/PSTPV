@@ -1,0 +1,37 @@
+===========  [Here are the slice info]  ===========
+The program name is : TemperatureConverter
+The total lines of original code is: 39
+The total lines of sliced code is: 32
+The deduction ratio is:17.94%
+===========  [Here are all the safe paths and used testcases]  ===========
+************** The safe path 1 ********************
+Timecost is: 486.0 ms
+The Ct is:  !((celsius % 8) < 0) && !((celsius * 9 / 5 + 32) <= 104 && (celsius * 9 / 5 + 32) > 14) && !(((celsius) / 10) / 10 > 0) && ((celsius) / 10 > 0) && ((base - (0)) > (40)) && !(celsius < (0))
+The Dt is :((celsius % 8) >= 0 && (celsius % 8) < 8)
+Ct && !(Dt):  !((celsius % 8) < 0) && !((celsius * 9 / 5 + 32) <= 104 && (celsius * 9 / 5 + 32) > 14) && !(((celsius) / 10) / 10 > 0) && ((celsius) / 10 > 0) && ((base - (0)) > (40)) && !(celsius < (0)) && !((celsius % 8) >= 0 && (celsius % 8) < 8), which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int celsius = 95;
+int base = 68;
+    int result = TemperatureConverter.convertTemperature(celsius, base);
+}
+
+
+===========  [Here are all the dangerous paths and the dangerous inputs ]  ===========
+************** The dangerous path 1 ********************
+The Ct is:  !(((((0)) + (base + (0))) / 5) < 0) && ((((0)) * 9 / 5 + 32) <= 104 && (((0)) * 9 / 5 + 32) > 14) && !((((0))) / 10 > 0) && !((base + (0)) > (40)) && (celsius < (0))
+The (Dt) is :(((((0)) + (base + (0))) / 5) >= 0 && ((((0)) + (base + (0))) / 5) < 8)
+RE will be triggered under Ct && !(Dt):  !(((((0)) + (base + (0))) / 5) < 0) && ((((0)) * 9 / 5 + 32) <= 104 && (((0)) * 9 / 5 + 32) > 14) && !((((0))) / 10 > 0) && !((base + (0)) > (40)) && (celsius < (0)) && !(((((0)) + (base + (0))) / 5) >= 0 && ((((0)) + (base + (0))) / 5) < 8)
+The dangerous inputs in this path are as follows: 
+1. [base=40,celsius=-32768] 
+2. [base=40,celsius=-16384] 
+3. [base=40,celsius=-32767] 
+4. [base=40,celsius=-30720] 
+5. [base=40,celsius=-32735] 
+6. [base=40,celsius=-31744] 
+7. [base=40,celsius=-30716] 
+8. [base=40,celsius=-31743] 
+9. [base=40,celsius=-31616] 
+10. [base=40,celsius=-15360] 
+11. [base=40,celsius=-27648] 
+12. [TOO_MANY_ERROR=1] 

@@ -1,0 +1,49 @@
+===========  [Here are the slice info]  ===========
+The program name is : TrafficController
+The total lines of original code is: 38
+The total lines of sliced code is: 24
+The deduction ratio is:36.84%
+===========  [Here are all the safe paths and used testcases]  ===========
+************** The safe path 1 ********************
+Timecost is: 463.0 ms
+The Ct is:  ((vehicles / 5 + 20) >= 25 && (vehicles / 5 + 20) <= 45) && !(vehicles > (200)) && !(vehicles < (10))
+The Dt is :(((vehicles / 5 + 20) / 5) >= 0 && ((vehicles / 5 + 20) / 5) < 12)
+Ct && !(Dt):  ((vehicles / 5 + 20) >= 25 && (vehicles / 5 + 20) <= 45) && !(vehicles > (200)) && !(vehicles < (10)) && !(((vehicles / 5 + 20) / 5) >= 0 && ((vehicles / 5 + 20) / 5) < 12), which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int vehicles = 95;
+    int result = TrafficController.calculateFlow(vehicles);
+}
+************** The safe path 2 ********************
+Timecost is: 479.0 ms
+The Ct is:  !((((200)) / 5 + 20) >= 25 && (((200)) / 5 + 20) <= 45) && (vehicles > (200)) && !(vehicles < (10))
+The Dt is :(((((200)) / 5 + 20) % 12) >= 0 && ((((200)) / 5 + 20) % 12) < 12)
+Ct && !(Dt):  !((((200)) / 5 + 20) >= 25 && (((200)) / 5 + 20) <= 45) && (vehicles > (200)) && !(vehicles < (10)) && !(((((200)) / 5 + 20) % 12) >= 0 && ((((200)) / 5 + 20) % 12) < 12), which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int vehicles = 20719;
+    int result = TrafficController.calculateFlow(vehicles);
+}
+************** The safe path 3 ********************
+Timecost is: 465.0 ms
+The Ct is:  !((((10)) / 5 + 20) >= 25 && (((10)) / 5 + 20) <= 45) && !(((10)) > (200)) && (vehicles < (10))
+The Dt is :(((((10)) / 5 + 20) % 12) >= 0 && ((((10)) / 5 + 20) % 12) < 12)
+Ct && !(Dt):  !((((10)) / 5 + 20) >= 25 && (((10)) / 5 + 20) <= 45) && !(((10)) > (200)) && (vehicles < (10)) && !(((((10)) / 5 + 20) % 12) >= 0 && ((((10)) / 5 + 20) % 12) < 12), which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int vehicles = 0;
+    int result = TrafficController.calculateFlow(vehicles);
+}
+************** The safe path 4 ********************
+Timecost is: 457.0 ms
+The Ct is:  !((vehicles / 5 + 20) >= 25 && (vehicles / 5 + 20) <= 45) && !(vehicles > (200)) && !(vehicles < (10))
+The Dt is :(((vehicles / 5 + 20) % 12) >= 0 && ((vehicles / 5 + 20) % 12) < 12)
+Ct && !(Dt):  !((vehicles / 5 + 20) >= 25 && (vehicles / 5 + 20) <= 45) && !(vehicles > (200)) && !(vehicles < (10)) && !(((vehicles / 5 + 20) % 12) >= 0 && ((vehicles / 5 + 20) % 12) < 12), which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int vehicles = 10;
+    int result = TrafficController.calculateFlow(vehicles);
+}
+
+
+===========  [Here are all the dangerous paths and the dangerous inputs ]  ===========

@@ -1,0 +1,45 @@
+===========  [Here are the slice info]  ===========
+The program name is : ResourceAllocator
+The total lines of original code is: 34
+The total lines of sliced code is: 22
+The deduction ratio is:35.29%
+===========  [Here are all the safe paths and used testcases]  ===========
+************** The safe path 1 ********************
+Timecost is: 472.0 ms
+The Ct is:  !((request * 2 - 10) >= 12 && (request * 2 - 10) < 20) && !(request > (35)) && !(request < (8))
+The Dt is :(((request * 2 - 10) % 6) >= 0 && ((request * 2 - 10) % 6) < 6)
+Ct && !(Dt):  !((request * 2 - 10) >= 12 && (request * 2 - 10) < 20) && !(request > (35)) && !(request < (8)) && !(((request * 2 - 10) % 6) >= 0 && ((request * 2 - 10) % 6) < 6), which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int request = 32;
+    int result = ResourceAllocator.allocateResources(request);
+}
+************** The safe path 2 ********************
+Timecost is: 455.0 ms
+The Ct is:  !((((8)) * 2 - 10) >= 12 && (((8)) * 2 - 10) < 20) && !(((8)) > (35)) && (request < (8))
+The Dt is :(((((8)) * 2 - 10) % 6) >= 0 && ((((8)) * 2 - 10) % 6) < 6)
+Ct && !(Dt):  !((((8)) * 2 - 10) >= 12 && (((8)) * 2 - 10) < 20) && !(((8)) > (35)) && (request < (8)) && !(((((8)) * 2 - 10) % 6) >= 0 && ((((8)) * 2 - 10) % 6) < 6), which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int request = 0;
+    int result = ResourceAllocator.allocateResources(request);
+}
+************** The safe path 3 ********************
+Timecost is: 466.0 ms
+The Ct is:  !((((35)) * 2 - 10) >= 12 && (((35)) * 2 - 10) < 20) && (request > (35)) && !(request < (8))
+The Dt is :(((((35)) * 2 - 10) % 6) >= 0 && ((((35)) * 2 - 10) % 6) < 6)
+Ct && !(Dt):  !((((35)) * 2 - 10) >= 12 && (((35)) * 2 - 10) < 20) && (request > (35)) && !(request < (8)) && !(((((35)) * 2 - 10) % 6) >= 0 && ((((35)) * 2 - 10) % 6) < 6), which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int request = 16384;
+    int result = ResourceAllocator.allocateResources(request);
+}
+
+
+===========  [Here are all the dangerous paths and the dangerous inputs ]  ===========
+************** The dangerous path 1 ********************
+The Ct is:  ((request * 2 - 10) >= 12 && (request * 2 - 10) < 20) && !(request > (35)) && !(request < (8))
+The (Dt) is :(((request * 2 - 10) / 3) >= 0 && ((request * 2 - 10) / 3) < 6)
+RE will be triggered under Ct && !(Dt):  ((request * 2 - 10) >= 12 && (request * 2 - 10) < 20) && !(request > (35)) && !(request < (8)) && !(((request * 2 - 10) / 3) >= 0 && ((request * 2 - 10) / 3) < 6)
+The dangerous inputs in this path are as follows: 
+1. [request=14] 

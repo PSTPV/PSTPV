@@ -1,0 +1,85 @@
+===========  [Here are the slice info]  ===========
+The program name is : Power3Bit
+The total lines of original code is: 32
+The total lines of sliced code is: 26
+The deduction ratio is:18.75%
+===========  [Here are all the safe paths and used testcases]  ===========
+************** The safe path 1 ********************
+Timecost is: 484.0 ms
+The Ct is:  !(-(n) < 5) && (-(n) > 0) && (n < 0)
+The Dt is :true
+Ct && !(Dt):  !(-(n) < 5) && (-(n) > 0) && (n < 0) && !true, which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int n = -66;
+    int result = Power3Bit.power3Bit(n);
+}
+************** The safe path 2 ********************
+Timecost is: 475.0 ms
+The Ct is:  !(((0) + 1) < n) && ((0) < n) && (n < 5) && (n > 0) && !(n < 0)
+The Dt is :true
+Ct && !(Dt):  !(((0) + 1) < n) && ((0) < n) && (n < 5) && (n > 0) && !(n < 0) && !true, which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int n = 1;
+    int result = Power3Bit.power3Bit(n);
+}
+************** The safe path 3 ********************
+Timecost is: 502.0 ms
+The Ct is:  !((((0) + 1) + 1) < -(n)) && (((0) + 1) < -(n)) && ((0) < -(n)) && (-(n) < 5) && (-(n) > 0) && (n < 0)
+The Dt is :true
+Ct && !(Dt):  !((((0) + 1) + 1) < -(n)) && (((0) + 1) < -(n)) && ((0) < -(n)) && (-(n) < 5) && (-(n) > 0) && (n < 0) && !true, which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int n = -2;
+    int result = Power3Bit.power3Bit(n);
+}
+************** The safe path 4 ********************
+Timecost is: 473.0 ms
+The Ct is:  !(((0) + 1) < -(n)) && ((0) < -(n)) && (-(n) < 5) && (-(n) > 0) && (n < 0)
+The Dt is :true
+Ct && !(Dt):  !(((0) + 1) < -(n)) && ((0) < -(n)) && (-(n) < 5) && (-(n) > 0) && (n < 0) && !true, which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int n = -1;
+    int result = Power3Bit.power3Bit(n);
+}
+************** The safe path 5 ********************
+Timecost is: 648.0 ms
+The Ct is:  !(n < 5) && (n > 0) && !(n < 0)
+The Dt is :true
+Ct && !(Dt):  !(n < 5) && (n > 0) && !(n < 0) && !true, which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int n = 75;
+    int result = Power3Bit.power3Bit(n);
+}
+************** The safe path 6 ********************
+Timecost is: 485.0 ms
+The Ct is:  !((((0) + 1) + 1) < n) && (((0) + 1) < n) && ((0) < n) && (n < 5) && (n > 0) && !(n < 0)
+The Dt is :true
+Ct && !(Dt):  !((((0) + 1) + 1) < n) && (((0) + 1) < n) && ((0) < n) && (n < 5) && (n > 0) && !(n < 0) && !true, which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int n = 2;
+    int result = Power3Bit.power3Bit(n);
+}
+************** The safe path 7 ********************
+Timecost is: 484.0 ms
+The Ct is:  !((((((0) + 1) + 1) + 1) + 1) < n) && (((((0) + 1) + 1) + 1) < n) && ((((0) + 1) + 1) < n) && (((0) + 1) < n) && ((0) < n) && (n < 5) && (n > 0) && !(n < 0)
+The Dt is :true
+Ct && !(Dt):  !((((((0) + 1) + 1) + 1) + 1) < n) && (((((0) + 1) + 1) + 1) < n) && ((((0) + 1) + 1) < n) && (((0) + 1) < n) && ((0) < n) && (n < 5) && (n > 0) && !(n < 0) && !true, which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int n = 4;
+    int result = Power3Bit.power3Bit(n);
+}
+
+
+===========  [Here are all the dangerous paths and the dangerous inputs ]  ===========
+************** The dangerous path 1 ********************
+The Ct is:  !(n > 0) && !(n < 0)
+The (Dt) is :false
+RE will be triggered under Ct && !(Dt):  !(n > 0) && !(n < 0) && !false
+The dangerous inputs in this path are as follows: 
+1. [n=0] 

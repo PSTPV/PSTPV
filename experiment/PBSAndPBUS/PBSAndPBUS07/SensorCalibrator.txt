@@ -1,0 +1,52 @@
+===========  [Here are the slice info]  ===========
+The program name is : SensorCalibrator
+The total lines of original code is: 39
+The total lines of sliced code is: 24
+The deduction ratio is:38.46%
+===========  [Here are all the safe paths and used testcases]  ===========
+************** The safe path 1 ********************
+Timecost is: 477.0 ms
+The Ct is:  !((((1023)) / 2 + 25) >= 50 && (((1023)) / 2 + 25) < 100) && (rawValue > (1023)) && !(rawValue < (0))
+The Dt is :(((((1023)) / 2 + 25) % 10) >= 0 && ((((1023)) / 2 + 25) % 10) < 16)
+Ct && !(Dt):  !((((1023)) / 2 + 25) >= 50 && (((1023)) / 2 + 25) < 100) && (rawValue > (1023)) && !(rawValue < (0)) && !(((((1023)) / 2 + 25) % 10) >= 0 && ((((1023)) / 2 + 25) % 10) < 16), which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int rawValue = 6913;
+    int result = SensorCalibrator.calibrateReading(rawValue);
+}
+************** The safe path 2 ********************
+Timecost is: 471.0 ms
+The Ct is:  !((((0)) / 2 + 25) >= 50 && (((0)) / 2 + 25) < 100) && !(((0)) > (1023)) && (rawValue < (0))
+The Dt is :(((((0)) / 2 + 25) % 10) >= 0 && ((((0)) / 2 + 25) % 10) < 16)
+Ct && !(Dt):  !((((0)) / 2 + 25) >= 50 && (((0)) / 2 + 25) < 100) && !(((0)) > (1023)) && (rawValue < (0)) && !(((((0)) / 2 + 25) % 10) >= 0 && ((((0)) / 2 + 25) % 10) < 16), which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int rawValue = -1;
+    int result = SensorCalibrator.calibrateReading(rawValue);
+}
+************** The safe path 3 ********************
+Timecost is: 484.0 ms
+The Ct is:  !((rawValue / 2 + 25) >= 50 && (rawValue / 2 + 25) < 100) && !(rawValue > (1023)) && !(rawValue < (0))
+The Dt is :(((rawValue / 2 + 25) % 10) >= 0 && ((rawValue / 2 + 25) % 10) < 16)
+Ct && !(Dt):  !((rawValue / 2 + 25) >= 50 && (rawValue / 2 + 25) < 100) && !(rawValue > (1023)) && !(rawValue < (0)) && !(((rawValue / 2 + 25) % 10) >= 0 && ((rawValue / 2 + 25) % 10) < 16), which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int rawValue = 0;
+    int result = SensorCalibrator.calibrateReading(rawValue);
+}
+
+
+===========  [Here are all the dangerous paths and the dangerous inputs ]  ===========
+************** The dangerous path 1 ********************
+The Ct is:  ((rawValue / 2 + 25) >= 50 && (rawValue / 2 + 25) < 100) && !(rawValue > (1023)) && !(rawValue < (0))
+The (Dt) is :(((rawValue / 2 + 25) / 6) >= 0 && ((rawValue / 2 + 25) / 6) < 16)
+RE will be triggered under Ct && !(Dt):  ((rawValue / 2 + 25) >= 50 && (rawValue / 2 + 25) < 100) && !(rawValue > (1023)) && !(rawValue < (0)) && !(((rawValue / 2 + 25) / 6) >= 0 && ((rawValue / 2 + 25) / 6) < 16)
+The dangerous inputs in this path are as follows: 
+1. [rawValue=142] 
+2. [rawValue=148] 
+3. [rawValue=149] 
+4. [rawValue=143] 
+5. [rawValue=145] 
+6. [rawValue=144] 
+7. [rawValue=146] 
+8. [rawValue=147] 
