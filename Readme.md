@@ -62,4 +62,4 @@ public class Main {
 
 ## Experimental Data
 
-All experimental data are available in the `experiment` directory, including the logged execution traces, intermediate result files, and the tables generated during data analysis.
+All experimental data are available in the `experiment result` directory, including the logged execution traces, intermediate result files, and the tables generated during data analysis.
