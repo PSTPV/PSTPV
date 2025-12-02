@@ -10,15 +10,14 @@ import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
 import static org.example.TBFV.ExecutionPathPrinter.addPrintStmt;
-import static org.example.TBFV.TransFileOperator.file2String;
 import static org.example.TBFV.Z3Solver.callZ3Solver2GenerateTestcase;
 
 
 public class TestCaseAutoGenerator {
     private static final int MAX_INT_VALUE = Short.MAX_VALUE;
     private static final int MIN_INT_VALUE = Short.MIN_VALUE;
-    private static final int LEGAL_CHAR_MIN = 32; // 可显示字符的最小值
-    private static final int LEGAL_CHAR_MAX = 126; // 可显示字符的最大值
+    private static final int LEGAL_CHAR_MIN = 32;
+    private static final int LEGAL_CHAR_MAX = 126;
 
     public static HashMap<String,String> generateTestCaseRandomlyUnderExpr(String expr, MethodDeclaration md){
         HashMap<String,String> testCase = new HashMap<>();
@@ -45,7 +44,7 @@ public class TestCaseAutoGenerator {
     public static HashMap<String,String> analyzeModelFromZ3Solver(String model, HashMap<String,String> paramTypeMap){
         HashMap<String,String> modelInfoMap = new HashMap<>();
         if(model == null || model.isEmpty()){
-            System.out.println("model值为空");
+            System.out.println("model is empty or null");
             return modelInfoMap;
         }
         String varValues = model.substring(model.indexOf("[")+1,model.lastIndexOf("]"));
@@ -64,61 +63,11 @@ public class TestCaseAutoGenerator {
                 if(varValue.equals("False")){
                     varValue = "false";
                 }
-//                if(paramTypeMap.containsKey(varName) && paramTypeMap.get(varName).equals("char")){
-//                    varValue = String.valueOf((char) Integer.parseInt(varValue));
-//                }
-//                if(paramTypeMap.containsKey(varName) && paramTypeMap.get(varName).equals("int")){
-//                    // 1. 解析为无符号 BigInteger
-//                    BigInteger unsignedValue = new BigInteger(varValue);
-//
-//                    // 2. 转换为有符号 int（模拟 32 位截断）
-//                    int signedValue = unsignedValue.intValue();
-//
-//                    // 3. 转为有符号字符串
-//                    varValue = Integer.toString(signedValue);
-////                    System.out.println("varValue 有符号值为：" + varValue);
-//                }
                 System.out.println("varName:" + varName + "\t"+ "varValue:" + varValue);
                 modelInfoMap.put(varName,varValue);
             }
         }
         return modelInfoMap;
-    }
-    public static HashMap<String,String> analyzeModelFromZ3Solver(String model, String ssmp){
-        HashMap<String, String> result;
-        HashMap<String, String> paramTypeMap = new HashMap<>();
-        MethodDeclaration md = ExecutionEnabler.getFirstStaticMethod(ssmp);
-        List<Parameter> parameters = null;
-        if (md != null) {
-            parameters = md.getParameters();
-        }
-        if(parameters == null || parameters.isEmpty()){
-            result = paramTypeMap;
-        } else {
-            for (Parameter p : parameters) {
-                paramTypeMap.put(p.getNameAsString(),p.getTypeAsString());
-            }
-            result = analyzeModelFromZ3Solver(model, paramTypeMap);
-        }
-        return result;
-    }
-
-    public static void substituteConstantValueInFSF(List<String[]> FSF){
-        for(String[] td : FSF){
-            if(td[0].contains("Integer.MAX_VALUE")){
-                td[0] = td[0].replace("Integer.MAX_VALUE", Integer.toString(MAX_INT_VALUE));
-            }
-            if(td[1].contains("Integer.MAX_VALUE")){
-                td[1] = td[1].replace("Integer.MAX_VALUE", Integer.toString(MIN_INT_VALUE));
-            }
-            if(td[0].contains("Integer.MIN_VALUE")){
-                td[0] = td[0].replace("Integer.MIN_VALUE", Integer.toString(MAX_INT_VALUE));
-            }
-            if(td[1].contains("Integer.MIN_VALUE")) {
-                td[1] = td[1].replace("Integer.MIN_VALUE", Integer.toString(MIN_INT_VALUE));
-            }
-        }
-        return;
     }
 
     public static HashMap<String,String> generateTestCaseByZ3(String constrainExpr, String ssmp){
@@ -175,7 +124,7 @@ public class TestCaseAutoGenerator {
         }else if(type.equals("float") || type.equals("double")){
             return "1.0";
         }else{
-            System.err.println("未知类型" + type + ", 无法设置默认值");
+            System.err.println("unknown type:" + type);
             return "null";
         }
     }
@@ -402,9 +351,4 @@ public class TestCaseAutoGenerator {
         }
     }
 
-    public static void main(String[] args) {
-        String program = file2String("resources/dataset/ChangeCase.java");
-        String s = addPrintStmt(program);
-        System.out.println(s);
-    }
 }

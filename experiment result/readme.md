@@ -5,7 +5,7 @@ This directory contains all experimental outputs used in the evaluation of PST-P
 ## Directory Structure
 
 ```
-experiment_result/
+experiment result/
 │
 ├── slice/
 ├── PES/

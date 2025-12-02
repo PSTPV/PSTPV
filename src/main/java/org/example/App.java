@@ -22,14 +22,26 @@ import java.util.stream.Stream;
 public class App
 {
     public static void main( String[] args ) {
+
+
 //        String srcCodePath = "dataset/PSBench/ArrayListOOB/CompressionRatio.java";
 //        sliceAndVerify_ALOOB(srcCodePath);
-//        String srcCodePath = "dataset/PSBenchExplosive_Safe/DivBy0/MixCollectSum_2.java";
-//        sliceAndVerify_DBZ(srcCodePath);
+        String srcCodePath = "dataset/PSBenchExplosive_Safe/DivBy0/MixCollectSum_2.java";
+        sliceAndVerify_DBZ(srcCodePath);
 //        String srcCodePath = "dataset/PSBench/ArrayOOB/EnergyMonitor.java";
 //        sliceAndVerify_OOB(srcCodePath);
 //        String srcCodePath = "dataset/PSBenchExplosive_Safe/MultiSumRatio_S.java";
 //        sliceAndVerify_NP(srcCodePath);
+
+
+
+
+
+
+
+
+
+
 
         // =============== Divide By Zero Experiment ===============
 //        PS4DBZ ps4DBZ = new PS4DBZ();

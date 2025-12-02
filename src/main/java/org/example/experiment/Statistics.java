@@ -7,11 +7,9 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.stream.Stream;
 
 public class Statistics {
    public static final String RESET = "\u001B[0m";
@@ -60,16 +58,6 @@ public class Statistics {
             }
         }
         return dangerousInputs;
-    }
-
-    public static List<Testcase> getTheTestcasesWeUsed(List<Testcase> tcs){
-        List<Testcase> testcases = new ArrayList<>();
-        for(Testcase t: tcs){
-            if(!t.isDangerousInput()){
-                testcases.add(t);
-            }
-        }
-        return testcases;
     }
 
     //The safe path must only try one testcase, so the list size is 1
@@ -162,12 +150,10 @@ public class Statistics {
     private static final Pattern ANSI_PATTERN = Pattern.compile("\u001B\\[[\\d;]*?m");
 
     public static String removeAnsiCodes(String input) {
-        // 处理 null 输入，避免空指针
         if (input == null || input.isEmpty()) {
             return "";
         }
         Matcher matcher = ANSI_PATTERN.matcher(input);
-        // 替换所有匹配的 ANSI 序列为空字符串
         return matcher.replaceAll("");
     }
 
@@ -205,163 +191,4 @@ public class Statistics {
     public static String generateSliceExperimentRecordWithoutColor(String originCodePath, String slicedCodePath){
         return removeAnsiCodes(generateSliceExperimentRecord(originCodePath, slicedCodePath));
     }
-
-    // 编译正则表达式，用于查找并捕获比率数值
-    // (\d+(\.\d+)?) 捕获一个或多个数字，后面可选跟一个小数点和更多数字
-    private static final Pattern RATIO_PATTERN =
-            Pattern.compile("The deduction ratio is:(\\d+(\\.\\d+)?)%");
-    private static final Pattern LOC_PATTERN =
-            Pattern.compile("The total lines of original code is:\\s*(\\d+)");
-    private static final Pattern SLOC_PATTERN =
-            Pattern.compile("The total lines of sliced code is:\\s*(\\d+)");
-
-
-    /**
-     * 读取指定目录下所有txt文件，提取并返回切片减少比率。
-     *
-     * @param directoryPath 实验日志文件所在的目录路径，例如 "experimentLog"。
-     * @return 包含所有提取到的切片减少比率（以 double 形式）的列表。
-     */
-    public static List<Double> getTheSlicedRatioFromExperimentLog(String directoryPath) {
-        List<Double> ratioList = new ArrayList<>();
-
-        // 检查目录路径是否有效
-        Path dir = Paths.get(directoryPath);
-        if (!Files.exists(dir) || !Files.isDirectory(dir)) {
-            System.err.println("错误：指定的路径不是一个有效的目录或不存在: " + directoryPath);
-            return ratioList;
-        }
-
-        try (Stream<Path> paths = Files.walk(dir)) {
-            // 遍历目录下的所有文件
-            paths.filter(Files::isRegularFile)
-                    .filter(p -> p.toString().endsWith(".txt"))
-                    .forEach(filePath -> {
-                        try {
-                            // 读取文件所有内容为一个字符串
-                            String content = Files.readString(filePath);
-
-                            // 尝试匹配正则表达式
-                            Matcher matcher = RATIO_PATTERN.matcher(content);
-
-                            if (matcher.find()) {
-                                // matcher.group(1) 捕获到正则表达式中第一个括号内的内容，即数值部分
-                                String ratioStr = matcher.group(1);
-
-                                try {
-                                    double ratio = Double.parseDouble(ratioStr);
-                                    ratioList.add(ratio);
-                                     System.out.println("从文件 " + filePath.getFileName() + " 中提取比率: " + ratio + "%");
-                                } catch (NumberFormatException e) {
-                                    System.err.println("警告：无法将提取的字符串转换为数字: " + ratioStr + " (文件: " + filePath.getFileName() + ")");
-                                }
-                            } else {
-                                 System.out.println("信息：文件 " + filePath.getFileName() + " 中未找到匹配的比率行。");
-                            }
-                        } catch (IOException e) {
-                            System.err.println("读取文件时发生IO错误: " + filePath.getFileName() + " - " + e.getMessage());
-                        }
-                    });
-
-        } catch (IOException e) {
-            System.err.println("遍历目录时发生IO错误: " + e.getMessage());
-        }
-
-        return ratioList;
-    }
-    public static List<Integer> getTheSlicedLineExperimentLog(String directoryPath) {
-        List<Integer> ratioList = new ArrayList<>();
-
-        // 检查目录路径是否有效
-        Path dir = Paths.get(directoryPath);
-        if (!Files.exists(dir) || !Files.isDirectory(dir)) {
-            System.err.println("错误：指定的路径不是一个有效的目录或不存在: " + directoryPath);
-            return ratioList;
-        }
-
-        try (Stream<Path> paths = Files.walk(dir)) {
-            // 遍历目录下的所有文件
-            paths.filter(Files::isRegularFile)
-                    .filter(p -> p.toString().endsWith(".txt"))
-                    .forEach(filePath -> {
-                        try {
-                            // 读取文件所有内容为一个字符串
-                            String content = Files.readString(filePath);
-
-                            // 尝试匹配正则表达式
-                            Matcher matcher = SLOC_PATTERN.matcher(content);
-
-                            if (matcher.find()) {
-                                // matcher.group(1) 捕获到正则表达式中第一个括号内的内容，即数值部分
-                                String slocStr = matcher.group(1);
-
-                                try {
-                                    int sloc = Integer.parseInt(slocStr);
-                                    ratioList.add(sloc);
-                                    System.out.println("从文件 " + filePath.getFileName() + " 中提取sloc: " + sloc);
-                                } catch (NumberFormatException e) {
-                                    System.err.println("警告：无法将提取的字符串转换为数字: " + slocStr + " (文件: " + filePath.getFileName() + ")");
-                                }
-                            } else {
-                                System.out.println("信息：文件 " + filePath.getFileName() + " 中未找到匹配的sloc。");
-                            }
-                        } catch (IOException e) {
-                            System.err.println("读取文件时发生IO错误: " + filePath.getFileName() + " - " + e.getMessage());
-                        }
-                    });
-
-        } catch (IOException e) {
-            System.err.println("遍历目录时发生IO错误: " + e.getMessage());
-        }
-
-        return ratioList;
-    }
-    public static List<Integer> getTheOriginalLineExperimentLog(String directoryPath) {
-        List<Integer> ratioList = new ArrayList<>();
-
-        // 检查目录路径是否有效
-        Path dir = Paths.get(directoryPath);
-        if (!Files.exists(dir) || !Files.isDirectory(dir)) {
-            System.err.println("错误：指定的路径不是一个有效的目录或不存在: " + directoryPath);
-            return ratioList;
-        }
-
-        try (Stream<Path> paths = Files.walk(dir)) {
-            // 遍历目录下的所有文件
-            paths.filter(Files::isRegularFile)
-                    .filter(p -> p.toString().endsWith(".txt"))
-                    .forEach(filePath -> {
-                        try {
-                            // 读取文件所有内容为一个字符串
-                            String content = Files.readString(filePath);
-
-                            // 尝试匹配正则表达式
-                            Matcher matcher = LOC_PATTERN.matcher(content);
-
-                            if (matcher.find()) {
-                                // matcher.group(1) 捕获到正则表达式中第一个括号内的内容，即数值部分
-                                String locStr = matcher.group(1);
-
-                                try {
-                                    int loc = Integer.parseInt(locStr);
-                                    ratioList.add(loc);
-                                    System.out.println("从文件 " + filePath.getFileName() + " 中提取loc: " + loc + "%");
-                                } catch (NumberFormatException e) {
-                                    System.err.println("警告：无法将提取的字符串转换为数字: " + locStr + " (文件: " + filePath.getFileName() + ")");
-                                }
-                            } else {
-                                System.out.println("信息：文件 " + filePath.getFileName() + " 中未找到匹配的loc。");
-                            }
-                        } catch (IOException e) {
-                            System.err.println("读取文件时发生IO错误: " + filePath.getFileName() + " - " + e.getMessage());
-                        }
-                    });
-
-        } catch (IOException e) {
-            System.err.println("遍历目录时发生IO错误: " + e.getMessage());
-        }
-
-        return ratioList;
-    }
-
 }

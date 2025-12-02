@@ -696,23 +696,21 @@ public class ExecutionPathPrinter {
 //            }
 
 
-            //记录当前 condition
+            //record current condition
             Expression c = childElseStmt.get().asIfStmt().getCondition();
             c = new EnclosedExpr(c);
             preIfConditions.add(c);
-            //生成 pathPrintBlock
+            // pathPrintBlock
             BlockStmt pathPrintBlock = generatePathPrintBlock(childElseStmt.get().asIfStmt());
-            //替换掉childElseStmt的thenStmt
+            //replace childElseStmt的thenStmt
             IfStmt elseIfStmt = childElseStmt.get().asIfStmt();
             elseIfStmt.setThenStmt(pathPrintBlock);
-            //父 IfStmt 更新子 ElseStmt 引用
+            //  update the ElseStmt
             parentIfStmt.setElseStmt(elseIfStmt);
-            //调整父子指针，以便进行循环
             parentIfStmt = parentIfStmt.getElseStmt().get().asIfStmt();
             childElseStmt = parentIfStmt.getElseStmt();
         }
-        //4. 处理最后的 else 语句
-        //4.1 没有elseStmt时，初始化一个，不是Block，改造成Block
+
         if(childElseStmt.isEmpty()) {
             BlockStmt b = new BlockStmt();
             childElseStmt = Optional.of(b);
@@ -758,7 +756,7 @@ public class ExecutionPathPrinter {
         cu.accept(new VoidVisitorAdapter<Void>() {
             @Override
             public void visit(NameExpr n, Void arg) {
-                variables.add(n.getNameAsString());  // 直接变量名（如 a, b）
+                variables.add(n.getNameAsString());
                 super.visit(n, arg);
             }
 
@@ -836,7 +834,6 @@ public class ExecutionPathPrinter {
     public static String addPrintStmtForNullPointer(String code) {
         CompilationUnit cu = StaticJavaParser.parse(code);
 
-        // ---- 1. 声明处理 ----
         cu.findAll(VariableDeclarationExpr.class).forEach(vde -> {
             if (!vde.getElementType().isPrimitiveType()) {
                 for (VariableDeclarator var : vde.getVariables()) {
@@ -874,7 +871,6 @@ public class ExecutionPathPrinter {
             }
         });
 
-        // ---- 2. 赋值处理（增加类型检查）----
         cu.findAll(AssignExpr.class).forEach(assign -> {
             Expression target = assign.getTarget();
             Expression value = assign.getValue();
@@ -882,14 +878,13 @@ public class ExecutionPathPrinter {
             if (target.isNameExpr()) {
                 String varName = target.asNameExpr().getNameAsString();
 
-                // === 类型过滤：仅处理引用类型变量 ===
                 boolean isReferenceVar = cu.findAll(VariableDeclarationExpr.class).stream()
                         .filter(vde -> vde.getVariables().stream()
                                 .anyMatch(v -> v.getNameAsString().equals(varName)))
                         .anyMatch(vde -> !vde.getElementType().isPrimitiveType());
 
                 if (!isReferenceVar) {
-                    return; // 跳过基本类型赋值
+                    return;
                 }
 
                 String rhsPrint;
@@ -990,26 +985,6 @@ public class ExecutionPathPrinter {
                         )
                 )
         );
-    }
-
-
-
-    public static void main(String[] args) throws Exception {
-        String dir = "resources/dataset/someBench/";
-        String testFileName = "Return100_Mutant5";
-        String testFileNameJava = testFileName+".java";
-        String testFilePath = dir + "/" + testFileNameJava;
-        String ssmp = TransWorker.trans2SSMP(FileUtil.file2String(testFilePath));
-//        System.out.println(ssmpHasLoopStmt(ssmp));
-        System.out.println(addPrintStmtForAssignStmt(ssmp));
-//        String pureCode = TransFileOperator.file2String(testFilePath);
-//        String targetCode = addPrintStmt(pureCode);
-//        String T = "!(a+b < f && e) > b && c < (d ? g : u) && a == return_value";
-//        Set<String> strings = extractVariablesInLogicalExpr(T);
-//        for (String s : strings) {
-//            System.out.println(s);
-//        }
-//        System.out.println(targetCode);
     }
 
 }

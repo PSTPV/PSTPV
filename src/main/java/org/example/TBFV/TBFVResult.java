@@ -17,7 +17,6 @@ public class TBFVResult {
     private String Dt;
 
     public TBFVResult(String json) {
-        //将json转化为SpecUnit对象
         ObjectMapper mapper = new ObjectMapper();
         try {
             TBFVResult res = mapper.readValue(json, TBFVResult.class);

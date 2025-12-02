@@ -13,7 +13,6 @@ public class Verifier {
         int countOfPathValidated = 0;
         TBFVResult r = null;
         String currentTD = "T: " + T + "\t" + "D: " + cc.getD();
-//        Set<String> prePathConstrains = new HashSet<>();
         long startTime = System.currentTimeMillis();
         System.out.println("startTime: " + startTime);
         long timeoutMs = 1000000;
@@ -84,7 +83,6 @@ public class Verifier {
                 return TDResult.createCounterExampleResult("runtime error could happend","");
 //                if(r.getStatus() == 2){
 //                    countOfPathValidated++;
-//                    //发现了可能异常就停止继续测试
 ////                    continue;
 //                }
 //                break;
@@ -254,13 +252,4 @@ public class Verifier {
         return r;
     }
 
-    public String getLogicExprForTC(String T, List<String> preConds){
-        StringBuilder logicExpr = new StringBuilder();
-        logicExpr.append(T);
-        for(String preCond : preConds){
-            logicExpr.append(" && ");
-            logicExpr.append("!" + "(" + preCond + ")");
-        }
-        return logicExpr.toString();
-    }
 }
