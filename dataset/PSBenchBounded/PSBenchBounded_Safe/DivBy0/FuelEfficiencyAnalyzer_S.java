@@ -3,7 +3,7 @@ public class FuelEfficiencyAnalyzer_S {
     public static double analyzeEfficiency(int distance, int fuelUsed) {
         int adjustedDistance = distance;
         int threshold = 100;
-        double efficiency = 0.0;
+        int efficiency = 0;
         boolean valid = true;
 
         adjustedDistance += 10;
@@ -19,25 +19,25 @@ public class FuelEfficiencyAnalyzer_S {
             }
 
             if (adjustedDistance % 2 == 0) {
-                efficiency = (double) adjustedDistance / amt;
+                efficiency = adjustedDistance / amt;
             } else {
                 adjustedDistance += 5;
-                efficiency = (double) (adjustedDistance - 2) + amt;
+                efficiency =  adjustedDistance - 2 + amt;
             }
 
             if (efficiency > 50) {
-                efficiency = efficiency * 0.9;
+                efficiency = efficiency * 3;
             } else {
-                efficiency = efficiency + 3.0;
+                efficiency = efficiency + 3;
             }
 
         } else {
             adjustedDistance += 20;
 
             if (fuelUsed > 10) {
-                efficiency = adjustedDistance * 0.5;
+                efficiency = adjustedDistance / 2;
             } else {
-                efficiency = adjustedDistance * 0.3;
+                efficiency = adjustedDistance / 3;
                 valid = false;
             }
         }

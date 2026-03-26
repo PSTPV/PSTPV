@@ -1,6 +1,6 @@
-public class TemperatureAnalyzer {
+public class TemperatureAnalyzer2 {
 
-    public static double analyzeTemperature(int modifier) {
+    public static double analyzeTemperature(int base,int modifier) {
         int temp = 96;
         int offset = 5;
         double average = 0.0;
@@ -10,14 +10,18 @@ public class TemperatureAnalyzer {
         temp = temp - offset;
         temp = temp * 2;
 
+        while(base > 0){
+            base -= offset;
+        }
+
         int factor = 3;
         int divisor = modifier - 2;
-        double result = 0.0;
+        int result = 0;
 
         if (temp > 50) {
             divisor = divisor + 1;
             temp = temp - 10;
-            result = (double) temp / divisor;
+            result =  temp / divisor;
             average = result + temp * 0.1;
             alert = average > 30;
         } else {
@@ -39,6 +43,6 @@ public class TemperatureAnalyzer {
         } else {
             finalValue -= 1.0;
         }
-        return finalValue;
+        return finalValue + base;
     }
 }

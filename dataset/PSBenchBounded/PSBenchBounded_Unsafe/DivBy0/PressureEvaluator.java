@@ -2,7 +2,7 @@ public class PressureEvaluator {
 
     public static double computePressure(int base, int factor) {
         int adjusted = base;
-        double pressure = 0.0;
+        int pressure = 0;
         boolean stable = true;
         int modifier = 5;
         int calFactor = 2;
@@ -17,15 +17,15 @@ public class PressureEvaluator {
 
             if (factor > 0) {
                 int divisor = factor - 2;
-                pressure = (double) adjusted / divisor;
+                pressure = adjusted / divisor;
             } else {
                 adjusted = adjusted + 4;
-                pressure = adjusted * 1.1;
+                pressure = adjusted * 2;
                 stable = false;
             }
 
             if (pressure > 30) {
-                pressure = pressure * 0.9;
+                pressure = pressure * 3;
             } else {
                 pressure = pressure + 5;
             }
@@ -35,16 +35,16 @@ public class PressureEvaluator {
 
             if (factor < 10) {
                 adjusted += 6;
-                pressure = adjusted * 0.7;
+                pressure = adjusted * 2;
             } else {
-                pressure = adjusted * 0.4;
+                pressure = adjusted * 3;
                 stable = false;
             }
 
             if (pressure < 20) {
                 pressure = pressure + 3;
             } else {
-                pressure = pressure * 0.95;
+                pressure = pressure * 2;
             }
         }
 

@@ -25,7 +25,7 @@ public class PerformanceRater {
             return baseSalary + bonusLevels[3] + (sales - 10000) / 100;
         }
 
-        rating = sales / 125;
+        rating = sales / 120;
 
         performance = new String(String.valueOf(rating * 2) + 9);
 
@@ -37,23 +37,19 @@ public class PerformanceRater {
             bonus = bonusLevels[0] - penalty;
             bonus =  Math.max(bonus, 0);
             performance = null;
-            System.out.println("bonus is " + bonus);
         }
         if (rating == 1) {
             bonus = bonusLevels[1] - penalty / 2;
             bonus =  bonus + (sales % 100);
-            System.out.println("bonus is " + bonus);
         }
         if (rating == 2) {
             bonus = bonusLevels[2] - penalty / 3;
             bonus = bonus + (attendance * 2);
-            System.out.println("bonus is " + bonus);
         } else {
             bonus = sales * bonusLevels[3] / 1000;
             if (bonus > 1000) {
                 bonus = bonus + attendance * 5;
             }
-            System.out.println("bonus is " + bonus);
         }
         factor = performance.length();
 

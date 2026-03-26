@@ -12,10 +12,10 @@ public class RiskScoreCalculator_S {
         int factor = 5 * incidents + 1;
 
         double penalty = 1.5;
-        double adjustment = 0.0;
+        int adjustment = 0;
         boolean risky = false;
 
-        if (score > 80) {
+        if (score > 100) {
             factor = factor - avg;
             score = score - 5;
             if(score < 150){
@@ -23,7 +23,7 @@ public class RiskScoreCalculator_S {
             }else{
                 score = 150;
             }
-            adjustment = (double) score / factor;
+            adjustment =  score / factor;
             risky = adjustment > 10;
         } else {
             score = score + 7;

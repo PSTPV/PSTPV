@@ -2,7 +2,7 @@ public class HeatPredictor_S {
 
     public static double predictHeat(int level, int factor) {
         int adjusted = level;
-        double heat = 0.0;
+        int heat = 0;
         boolean normal = true;
         int offset = 3;
 
@@ -23,22 +23,22 @@ public class HeatPredictor_S {
 
                 if (level < 5) {
                     int divisor = factor - 8;
-                    heat = (double) adjusted / divisor;
+                    heat = adjusted / divisor;
                 } else {
                     adjusted += 7;
-                    heat = adjusted * 1.1;
+                    heat = adjusted * 2;
                     normal = false;
                 }
 
                 if (heat > 100) {
-                    heat = heat * 0.85;
+                    heat = heat * 3;
                 } else {
                     heat = heat + 12;
                 }
 
             } else {
                 adjusted -= 4;
-                heat = adjusted * 0.9;
+                heat = adjusted * 2;
                 normal = false;
             }
 
@@ -47,16 +47,16 @@ public class HeatPredictor_S {
 
             if (factor < 3) {
                 adjusted += 5;
-                heat = adjusted * 0.75;
+                heat = adjusted * 3;
             } else {
-                heat = adjusted * 0.8;
+                heat = adjusted * 2;
                 normal = false;
             }
 
             if (heat < 25) {
                 heat = heat + 5;
             } else {
-                heat = heat * 0.96;
+                heat = heat * 3;
             }
         }
 

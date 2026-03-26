@@ -2,7 +2,7 @@ public class DensityEvaluator {
 
     public static double calculateDensity(int mass, int volume) {
         int adjusted = mass;
-        double density = 0.0;
+        int density = 0;
         boolean valid = true;
         int factor = 4;
         int divisor = 0;
@@ -21,22 +21,22 @@ public class DensityEvaluator {
 
                 if (volume < 8) {
                     divisor = volume - 5;
-                    density = (double) adjusted / divisor;
+                    density = adjusted / divisor;
                 } else {
                     adjusted += 5;
-                    density = adjusted * 1.3;
+                    density = adjusted * 3;
                     valid = false;
                 }
 
                 if (density > 60) {
-                    density = density * 0.9;
+                    density = density * 2;
                 } else {
                     density = density + 10;
                 }
 
             } else {
                 adjusted += 2;
-                density = adjusted * 0.8;
+                density = adjusted - 6;
                 valid = false;
             }
 
@@ -45,16 +45,16 @@ public class DensityEvaluator {
             divisor++;
             if (mass < 20) {
                 adjusted += 4;
-                density = adjusted * 0.5;
+                density = adjusted / 2;
             } else {
-                density = adjusted * 0.6;
+                density = adjusted / 3;
                 valid = false;
             }
 
             if (density < 30) {
                 density = density + 6;
             } else {
-                density = density * 0.95;
+                density = density * 3;
             }
         }
 

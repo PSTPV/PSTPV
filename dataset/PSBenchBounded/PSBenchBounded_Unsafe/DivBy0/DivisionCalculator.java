@@ -5,7 +5,7 @@ public class DivisionCalculator {
         int diff = 0;
         int product = 1;
         int counter = 0;
-        double ratio = 0;
+        int ratio = 0;
         for (int i = 0; i < 5; i++) {
             sum = sum + i;
             diff = diff - i;
@@ -19,7 +19,7 @@ public class DivisionCalculator {
             numerator = numerator + diff * counter;
         }else{
             denominator = numerator - denominator;
-            ratio = (double) numerator / denominator;
+            ratio =  numerator / denominator;
         }
 
         double adjustment = 0.0;

@@ -2,7 +2,7 @@ public class SpeedEstimator {
 
     public static double estimateSpeed(int distance,int time) {
         int adjusted = distance;
-        double speed = 0.0;
+        int speed = 0;
         boolean valid = true;
         int bias = 2;
 
@@ -18,7 +18,7 @@ public class SpeedEstimator {
 
                 if (distance > 20) {
                     adjusted = adjusted + distance - 4;
-                    speed = adjusted * 0.75;
+                    speed = adjusted * 3;
                     adjusted -= 5;
 
                     if (time > 0) {
@@ -26,26 +26,26 @@ public class SpeedEstimator {
 
                         if (time != 0) {
                             int divisor = time - 1;
-                            speed = (double) adjusted / divisor;
+                            speed = adjusted / divisor;
                         } else {
                             adjusted += 4;
-                            speed = adjusted * 1.05;
+                            speed = adjusted;
                             valid = false;
                         }
 
                     } else {
                         adjusted += 3;
-                        speed = adjusted * 0.6;
+                        speed = adjusted / 2;
                     }
                 } else {
                     adjusted += 3;
-                    speed = adjusted * 1.1;
+                    speed = adjusted * 2;
                     valid = false;
                 }
 
             } else {
                 adjusted -= 6;
-                speed = adjusted * 0.8;
+                speed = adjusted / 2;
                 valid = false;
             }
 

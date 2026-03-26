@@ -2,7 +2,7 @@ public class FlowCalculator_S {
 
     public static double computeFlow(int pressure, int rate) {
         int adjusted = pressure;
-        double flow = 0.0;
+        int flow = 0;
         boolean stable = true;
         int modifier = 3;
 
@@ -19,22 +19,22 @@ public class FlowCalculator_S {
 
                 if (pressure < 10) {
                     int divisor = rate - 5;
-                    flow = (double) adjusted / divisor;
+                    flow =  adjusted / divisor;
                 } else {
                     adjusted += 8;
-                    flow = adjusted * 0.95;
+                    flow = adjusted * 3;
                     stable = false;
                 }
 
                 if (flow > 80) {
-                    flow = flow * 0.9;
+                    flow = flow / 2;
                 } else {
                     flow = flow + 10;
                 }
 
             } else {
                 adjusted -= 4;
-                flow = adjusted * 1.1;
+                flow = adjusted * 3;
                 stable = false;
             }
 
@@ -43,16 +43,16 @@ public class FlowCalculator_S {
 
             if (rate < 3) {
                 adjusted += 5;
-                flow = adjusted * 0.7;
+                flow = adjusted * 6;
             } else {
-                flow = adjusted * 0.8;
+                flow = adjusted * 5;
                 stable = false;
             }
 
             if (flow < 20) {
                 flow = flow + 5;
             } else {
-                flow = flow * 0.95;
+                flow = flow * 3;
             }
         }
 

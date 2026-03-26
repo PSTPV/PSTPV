@@ -1,6 +1,6 @@
 Dataset Overview
 
-This directory contains the complete dataset used in the evaluation of PST-PV. The dataset consists of 45 Java programs covering multiple runtime-exception types and diverse control-flow structures. All programs are organized into four subdirectories as described below.
+This directory contains the complete dataset used in the evaluation of PST-PV. The dataset consists of 60 Java programs covering multiple runtime-exception types and diverse control-flow structures. All programs are organized into four subdirectories as described below.
 
 Directory Structure
 ```
@@ -14,7 +14,7 @@ dataset/
 
 1. PSBench/
 
-This directory contains all 45 programs in their original, unclassified form.
+This directory contains all 60 programs in their original, unclassified form.
 It serves as the complete dataset from which all subsequent classifications are derived.
 
 2. Classified Dataset
