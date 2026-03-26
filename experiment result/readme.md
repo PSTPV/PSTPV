@@ -8,6 +8,7 @@ This directory contains all experimental outputs used in the evaluation of PST-P
 experiment result/
 │
 ├── slice/
+├── Experiment_SV/
 ├── PES/
 ├── PEUS/
 └── PBSAndPBUS/
@@ -39,6 +40,9 @@ These three directories correspond to the results of the path-verification exper
 - **PEUS**: Path-Explosive Unsafe programs
 
 - **PBSAndPBUS**: Path-Bounded Safe and Path-Bounded Unsafe programs
+
+## 3.  `Experiment_SV/`
+The experimnet result in SV_COMP dataset
 
 
 Each of these directories contains the following:
