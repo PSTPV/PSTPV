@@ -1,0 +1,49 @@
+===========  [Here are the slice info]  ===========
+The program name is : CWE369_Divide_by_Zero__float_connect_tcp_divide_01_good_version2
+The total lines of original code is: 88
+The total lines of sliced code is: 25
+The deduction ratio is:71.59%
+===========  [Here are all the safe paths and used testcases]  ===========
+************** The safe path 1 ********************
+Timecost is: 487.0 ms
+The Ct is:  (-((StringNumberFloat)) > 0.000001) && ((StringNumberFloat) < 0)
+The Dt is :(-((StringNumberFloat)) != 0)
+Ct && !(Dt):  (-((StringNumberFloat)) > 0.000001) && ((StringNumberFloat) < 0) && !(-((StringNumberFloat)) != 0), which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+float StringNumberFloat = -1f;
+CWE369_Divide_by_Zero__float_connect_tcp_divide_01_good_version2.test(StringNumberFloat);
+}
+************** The safe path 2 ********************
+Timecost is: 461.0 ms
+The Ct is:  !(-((StringNumberFloat)) > 0.000001) && ((StringNumberFloat) < 0)
+The Dt is :true
+Ct && !(Dt):  !(-((StringNumberFloat)) > 0.000001) && ((StringNumberFloat) < 0) && !true, which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+float StringNumberFloat = -1/1000000f;
+CWE369_Divide_by_Zero__float_connect_tcp_divide_01_good_version2.test(StringNumberFloat);
+}
+************** The safe path 3 ********************
+Timecost is: 550.0 ms
+The Ct is:  !((StringNumberFloat) > 0.000001) && !((StringNumberFloat) < 0)
+The Dt is :true
+Ct && !(Dt):  !((StringNumberFloat) > 0.000001) && !((StringNumberFloat) < 0) && !true, which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+float StringNumberFloat = 0f;
+CWE369_Divide_by_Zero__float_connect_tcp_divide_01_good_version2.test(StringNumberFloat);
+}
+************** The safe path 4 ********************
+Timecost is: 474.0 ms
+The Ct is:  ((StringNumberFloat) > 0.000001) && !((StringNumberFloat) < 0)
+The Dt is :((StringNumberFloat) != 0)
+Ct && !(Dt):  ((StringNumberFloat) > 0.000001) && !((StringNumberFloat) < 0) && !((StringNumberFloat) != 0), which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+float StringNumberFloat = 1000001/1000000f;
+CWE369_Divide_by_Zero__float_connect_tcp_divide_01_good_version2.test(StringNumberFloat);
+}
+
+
+===========  [Here are all the dangerous paths and the dangerous inputs ]  ===========

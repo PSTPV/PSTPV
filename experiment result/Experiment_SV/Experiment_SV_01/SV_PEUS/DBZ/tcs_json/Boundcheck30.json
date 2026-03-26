@@ -1,0 +1,5 @@
+[{"testcaseMap":null,"mainMd":"public static void main(String[] args) {\nint x = 0;\n    int result = Boundcheck30.test(x);\n    System.out.println(\"Result: \" + result);\n}","logicExprOfPath":" (x < 30 || x > 30)","logicExprOfDT":"true","dangerousInput":false,"timeCostInMs":709.0}
+,{"testcaseMap":null,"mainMd":"public static void main(String[] args) {\nint x = 30;\n    int result = Boundcheck30.test(x);\n    System.out.println(\"Result: \" + result);\n}","logicExprOfPath":"","logicExprOfDT":"","dangerousInput":false,"timeCostInMs":22575.0}
+,{"testcaseMap":null,"mainMd":"public static void main(String[] args) {\nint x = 30;\n    int result = Boundcheck30.test(x);\n    System.out.println(\"Result: \" + result);\n}","logicExprOfPath":"","logicExprOfDT":"","dangerousInput":false,"timeCostInMs":22030.0}
+,{"testcaseMap":null,"mainMd":"public static void main(String[] args) {\nint x = 30;\n    int result = Boundcheck30.test(x);\n    System.out.println(\"Result: \" + result);\n}","logicExprOfPath":"","logicExprOfDT":"","dangerousInput":false,"timeCostInMs":0.0}
+]

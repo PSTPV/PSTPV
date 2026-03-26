@@ -1,0 +1,14 @@
+[{"testcaseMap":null,"mainMd":"public static void main(String[] args) {\nint y = 0;\nExSymExe1False.t1(y);\n}","logicExprOfPath":" ((y + 1) > 0)","logicExprOfDT":"((y + 1) >= 0 && (y + 1) < 50)","dangerousInput":false,"timeCostInMs":450.0}
+,{"testcaseMap":{"y ":" 32767"},"mainMd":null,"logicExprOfPath":" ((y + 1) > 0)","logicExprOfDT":"((y + 1) >= 0 && (y + 1) < 50)","dangerousInput":true,"timeCostInMs":0.0}
+,{"testcaseMap":{"y ":" 10271"},"mainMd":null,"logicExprOfPath":" ((y + 1) > 0)","logicExprOfDT":"((y + 1) >= 0 && (y + 1) < 50)","dangerousInput":true,"timeCostInMs":0.0}
+,{"testcaseMap":{"y ":" 17601"},"mainMd":null,"logicExprOfPath":" ((y + 1) > 0)","logicExprOfDT":"((y + 1) >= 0 && (y + 1) < 50)","dangerousInput":true,"timeCostInMs":0.0}
+,{"testcaseMap":{"y ":" 55"},"mainMd":null,"logicExprOfPath":" ((y + 1) > 0)","logicExprOfDT":"((y + 1) >= 0 && (y + 1) < 50)","dangerousInput":true,"timeCostInMs":0.0}
+,{"testcaseMap":{"y ":" 16383"},"mainMd":null,"logicExprOfPath":" ((y + 1) > 0)","logicExprOfDT":"((y + 1) >= 0 && (y + 1) < 50)","dangerousInput":true,"timeCostInMs":0.0}
+,{"testcaseMap":{"y ":" 16439"},"mainMd":null,"logicExprOfPath":" ((y + 1) > 0)","logicExprOfDT":"((y + 1) >= 0 && (y + 1) < 50)","dangerousInput":true,"timeCostInMs":0.0}
+,{"testcaseMap":{"y ":" 49"},"mainMd":null,"logicExprOfPath":" ((y + 1) > 0)","logicExprOfDT":"((y + 1) >= 0 && (y + 1) < 50)","dangerousInput":true,"timeCostInMs":0.0}
+,{"testcaseMap":{"y ":" 50"},"mainMd":null,"logicExprOfPath":" ((y + 1) > 0)","logicExprOfDT":"((y + 1) >= 0 && (y + 1) < 50)","dangerousInput":true,"timeCostInMs":0.0}
+,{"testcaseMap":{"y ":" 178"},"mainMd":null,"logicExprOfPath":" ((y + 1) > 0)","logicExprOfDT":"((y + 1) >= 0 && (y + 1) < 50)","dangerousInput":true,"timeCostInMs":0.0}
+,{"testcaseMap":{"y ":" 8191"},"mainMd":null,"logicExprOfPath":" ((y + 1) > 0)","logicExprOfDT":"((y + 1) >= 0 && (y + 1) < 50)","dangerousInput":true,"timeCostInMs":0.0}
+,{"testcaseMap":{"y ":" 57"},"mainMd":null,"logicExprOfPath":" ((y + 1) > 0)","logicExprOfDT":"((y + 1) >= 0 && (y + 1) < 50)","dangerousInput":true,"timeCostInMs":0.0}
+,{"testcaseMap":{"TOO_MANY_ERROR":"1"},"mainMd":null,"logicExprOfPath":" ((y + 1) > 0)","logicExprOfDT":"((y + 1) >= 0 && (y + 1) < 50)","dangerousInput":true,"timeCostInMs":0.0}
+]

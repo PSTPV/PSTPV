@@ -1,0 +1,26 @@
+===========  [Here are the slice info]  ===========
+The program name is : NullPointerException1
+The total lines of original code is: 22
+The total lines of sliced code is: 23
+The deduction ratio is:-4.54%
+===========  [Here are all the safe paths and used testcases]  ===========
+
+
+===========  [Here are all the dangerous paths and the dangerous inputs ]  ===========
+************** The dangerous path 1 ********************
+The Ct is:  (a == b) && !(a + b > 0) && !(b > 1) && !(a > 0) && !(a + b >= 1)
+The (Dt) is :false
+RE will be triggered under Ct && !(Dt):  (a == b) && !(a + b > 0) && !(b > 1) && !(a > 0) && !(a + b >= 1) && !false
+The dangerous inputs in this path are as follows: 
+1. [b=0,a=0] 
+2. [b=-26240,a=-26240] 
+3. [b=-26496,a=-26496] 
+4. [b=-31038,a=-31038] 
+5. [b=-26624,a=-26624] 
+6. [b=-32768,a=-32768] 
+7. [b=-31040,a=-31040] 
+8. [b=-26623,a=-26623] 
+9. [b=-31034,a=-31034] 
+10. [b=-24127,a=-24127] 
+11. [b=-28108,a=-28108] 
+12. [TOO_MANY_ERROR=1] 

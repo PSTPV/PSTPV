@@ -1,0 +1,18 @@
+===========  [Here are the slice info]  ===========
+The program name is : CWE369_Divide_by_Zero__float_connect_tcp_divide_01_good
+The total lines of original code is: 69
+The total lines of sliced code is: 20
+The deduction ratio is:71.01%
+===========  [Here are all the safe paths and used testcases]  ===========
+************** The safe path 1 ********************
+Timecost is: 434.0 ms
+The Ct is: true
+The Dt is :((2.0f) != 0)
+Ct && !(Dt): true && !((2.0f) != 0), which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+CWE369_Divide_by_Zero__float_connect_tcp_divide_01_good.test();
+}
+
+
+===========  [Here are all the dangerous paths and the dangerous inputs ]  ===========

@@ -1,0 +1,26 @@
+===========  [Here are the slice info]  ===========
+The program name is : ArithmeticException6
+The total lines of original code is: 28
+The total lines of sliced code is: 16
+The deduction ratio is:42.85%
+===========  [Here are all the safe paths and used testcases]  ===========
+************** The safe path 1 ********************
+Timecost is: 462.0 ms
+The Ct is:  !((denom * denom + 10) > 100)
+The Dt is :true
+Ct && !(Dt):  !((denom * denom + 10) > 100) && !true, which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int denom = 0;
+ArithmeticException6.test(denom);
+}
+
+
+===========  [Here are all the dangerous paths and the dangerous inputs ]  ===========
+************** The dangerous path 1 ********************
+The Ct is:  (((denom * denom + 10) - 10) >= 90) && ((denom * denom + 10) > 100)
+The (Dt) is :((((denom * denom + 10) - 10) - 100) != 0)
+RE will be triggered under Ct && !(Dt):  (((denom * denom + 10) - 10) >= 90) && ((denom * denom + 10) > 100) && !((((denom * denom + 10) - 10) - 100) != 0)
+The dangerous inputs in this path are as follows: 
+1. [denom=10] 
+2. [denom=-10] 

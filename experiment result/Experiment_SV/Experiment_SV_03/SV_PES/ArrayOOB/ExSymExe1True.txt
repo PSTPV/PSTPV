@@ -1,0 +1,29 @@
+===========  [Here are the slice info]  ===========
+The program name is : ExSymExe1True
+The total lines of original code is: 28
+The total lines of sliced code is: 15
+The deduction ratio is:46.42%
+===========  [Here are all the safe paths and used testcases]  ===========
+************** The safe path 1 ********************
+Timecost is: 443.0 ms
+The Ct is:  !(((y % 10) + 1) > 0)
+The Dt is :true
+Ct && !(Dt):  !(((y % 10) + 1) > 0) && !true, which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int y = -7041;
+ExSymExe1True.t1(y);
+}
+************** The safe path 2 ********************
+Timecost is: 440.0 ms
+The Ct is:  (((y % 10) + 1) > 0)
+The Dt is :(((y % 10) + 1) >= 0 && ((y % 10) + 1) < 50)
+Ct && !(Dt):  (((y % 10) + 1) > 0) && !(((y % 10) + 1) >= 0 && ((y % 10) + 1) < 50), which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int y = 0;
+ExSymExe1True.t1(y);
+}
+
+
+===========  [Here are all the dangerous paths and the dangerous inputs ]  ===========

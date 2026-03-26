@@ -1,0 +1,3 @@
+[{"testcaseMap":null,"mainMd":"public static void main(String[] args) {\nint y = 0;\nExSymExe1True.t1(y);\n}","logicExprOfPath":" (((y % 10) + 1) > 0)","logicExprOfDT":"(((y % 10) + 1) >= 0 && ((y % 10) + 1) < 50)","dangerousInput":false,"timeCostInMs":442.0}
+,{"testcaseMap":null,"mainMd":"public static void main(String[] args) {\nint y = -7041;\nExSymExe1True.t1(y);\n}","logicExprOfPath":" !(((y % 10) + 1) > 0)","logicExprOfDT":"true","dangerousInput":false,"timeCostInMs":417.0}
+]

@@ -1,0 +1,2 @@
+[{"testcaseMap":null,"mainMd":"public static void main(String[] args) {\nCWE369_Divide_by_Zero__float_connect_tcp_divide_01_good.test();\n}","logicExprOfPath":"true","logicExprOfDT":"((2.0f) != 0)","dangerousInput":false,"timeCostInMs":460.0}
+]

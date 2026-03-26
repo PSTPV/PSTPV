@@ -1,0 +1,14 @@
+[{"testcaseMap":null,"mainMd":"public static void main(String[] args) {\nint a = 0;\nint b = 0;\nNullPointerException1.test(a, b);\n}","logicExprOfPath":" (a == b) && !(a + b > 0) && !(b > 1) && !(a > 0) && !(a + b >= 1)","logicExprOfDT":"false","dangerousInput":false,"timeCostInMs":479.0}
+,{"testcaseMap":{" b ":" 0","a ":" 0 "},"mainMd":null,"logicExprOfPath":" (a == b) && !(a + b > 0) && !(b > 1) && !(a > 0) && !(a + b >= 1)","logicExprOfDT":"false","dangerousInput":true,"timeCostInMs":0.0}
+,{"testcaseMap":{" b ":" -26240","a ":" -26240 "},"mainMd":null,"logicExprOfPath":" (a == b) && !(a + b > 0) && !(b > 1) && !(a > 0) && !(a + b >= 1)","logicExprOfDT":"false","dangerousInput":true,"timeCostInMs":0.0}
+,{"testcaseMap":{" b ":" -26496","a ":" -26496 "},"mainMd":null,"logicExprOfPath":" (a == b) && !(a + b > 0) && !(b > 1) && !(a > 0) && !(a + b >= 1)","logicExprOfDT":"false","dangerousInput":true,"timeCostInMs":0.0}
+,{"testcaseMap":{" b ":" -31038","a ":" -31038 "},"mainMd":null,"logicExprOfPath":" (a == b) && !(a + b > 0) && !(b > 1) && !(a > 0) && !(a + b >= 1)","logicExprOfDT":"false","dangerousInput":true,"timeCostInMs":0.0}
+,{"testcaseMap":{" b ":" -26624","a ":" -26624 "},"mainMd":null,"logicExprOfPath":" (a == b) && !(a + b > 0) && !(b > 1) && !(a > 0) && !(a + b >= 1)","logicExprOfDT":"false","dangerousInput":true,"timeCostInMs":0.0}
+,{"testcaseMap":{" b ":" -32768","a ":" -32768 "},"mainMd":null,"logicExprOfPath":" (a == b) && !(a + b > 0) && !(b > 1) && !(a > 0) && !(a + b >= 1)","logicExprOfDT":"false","dangerousInput":true,"timeCostInMs":0.0}
+,{"testcaseMap":{" b ":" -31040","a ":" -31040 "},"mainMd":null,"logicExprOfPath":" (a == b) && !(a + b > 0) && !(b > 1) && !(a > 0) && !(a + b >= 1)","logicExprOfDT":"false","dangerousInput":true,"timeCostInMs":0.0}
+,{"testcaseMap":{" b ":" -26623","a ":" -26623 "},"mainMd":null,"logicExprOfPath":" (a == b) && !(a + b > 0) && !(b > 1) && !(a > 0) && !(a + b >= 1)","logicExprOfDT":"false","dangerousInput":true,"timeCostInMs":0.0}
+,{"testcaseMap":{" b ":" -31034","a ":" -31034 "},"mainMd":null,"logicExprOfPath":" (a == b) && !(a + b > 0) && !(b > 1) && !(a > 0) && !(a + b >= 1)","logicExprOfDT":"false","dangerousInput":true,"timeCostInMs":0.0}
+,{"testcaseMap":{" b ":" -24127","a ":" -24127 "},"mainMd":null,"logicExprOfPath":" (a == b) && !(a + b > 0) && !(b > 1) && !(a > 0) && !(a + b >= 1)","logicExprOfDT":"false","dangerousInput":true,"timeCostInMs":0.0}
+,{"testcaseMap":{" b ":" -28108","a ":" -28108 "},"mainMd":null,"logicExprOfPath":" (a == b) && !(a + b > 0) && !(b > 1) && !(a > 0) && !(a + b >= 1)","logicExprOfDT":"false","dangerousInput":true,"timeCostInMs":0.0}
+,{"testcaseMap":{"TOO_MANY_ERROR":"1"},"mainMd":null,"logicExprOfPath":" (a == b) && !(a + b > 0) && !(b > 1) && !(a > 0) && !(a + b >= 1)","logicExprOfDT":"false","dangerousInput":true,"timeCostInMs":0.0}
+]

@@ -1,0 +1,6 @@
+[{"testcaseMap":null,"mainMd":"public static void main(String[] args) {\nint i = 0;\nArithmeticException1.test(i);\n}","logicExprOfPath":" (i <= 15)","logicExprOfDT":"true","dangerousInput":false,"timeCostInMs":708.0}
+,{"testcaseMap":null,"mainMd":"public static void main(String[] args) {\nint i = 16384;\nArithmeticException1.test(i);\n}","logicExprOfPath":" (i * i >= 10000) && !(i <= 15)","logicExprOfDT":"true","dangerousInput":false,"timeCostInMs":534.0}
+,{"testcaseMap":null,"mainMd":"public static void main(String[] args) {\nint i = 41;\nArithmeticException1.test(i);\n}","logicExprOfPath":" ((i * i) > (1000)) && !(i * i >= 10000) && !(i <= 15)","logicExprOfDT":"true","dangerousInput":false,"timeCostInMs":501.0}
+,{"testcaseMap":null,"mainMd":"public static void main(String[] args) {\nint i = 18;\nArithmeticException1.test(i);\n}","logicExprOfPath":" !((i * i) > (1000)) && !(i * i >= 10000) && !(i <= 15)","logicExprOfDT":"((i - 16) != 0)","dangerousInput":false,"timeCostInMs":468.0}
+,{"testcaseMap":{"i ":" 16"},"mainMd":null,"logicExprOfPath":" !((i * i) > (1000)) && !(i * i >= 10000) && !(i <= 15)","logicExprOfDT":"((i - 16) != 0)","dangerousInput":true,"timeCostInMs":0.0}
+]

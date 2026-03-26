@@ -1,0 +1,39 @@
+===========  [Here are the slice info]  ===========
+The program name is : NullPointerException2
+The total lines of original code is: 12
+The total lines of sliced code is: 14
+The deduction ratio is:-16.66%
+===========  [Here are all the safe paths and used testcases]  ===========
+************** The safe path 1 ********************
+Timecost is: 435.0 ms
+The Ct is:  !(i < 0) && !(i > 10)
+The Dt is :true
+Ct && !(Dt):  !(i < 0) && !(i > 10) && !true, which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int i = 0;
+NullPointerException2.test(i);
+}
+************** The safe path 2 ********************
+Timecost is: 441.0 ms
+The Ct is:  (i < 0) && !(i > 10)
+The Dt is :true
+Ct && !(Dt):  (i < 0) && !(i > 10) && !true, which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int i = -32768;
+NullPointerException2.test(i);
+}
+************** The safe path 3 ********************
+Timecost is: 439.0 ms
+The Ct is:  (i > 10)
+The Dt is :true
+Ct && !(Dt):  (i > 10) && !true, which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int i = 11;
+NullPointerException2.test(i);
+}
+
+
+===========  [Here are all the dangerous paths and the dangerous inputs ]  ===========

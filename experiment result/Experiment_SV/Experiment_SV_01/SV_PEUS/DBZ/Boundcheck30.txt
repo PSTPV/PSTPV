@@ -1,0 +1,20 @@
+===========  [Here are the slice info]  ===========
+The program name is : Boundcheck30
+The total lines of original code is: 27
+The total lines of sliced code is: 21
+The deduction ratio is:22.22%
+===========  [Here are all the safe paths and used testcases]  ===========
+************** The safe path 1 ********************
+Timecost is: 709.0 ms
+The Ct is:  (x < 30 || x > 30)
+The Dt is :true
+Ct && !(Dt):  (x < 30 || x > 30) && !true, which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int x = 0;
+    int result = Boundcheck30.test(x);
+    System.out.println("Result: " + result);
+}
+
+
+===========  [Here are all the dangerous paths and the dangerous inputs ]  ===========

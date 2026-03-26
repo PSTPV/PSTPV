@@ -1,0 +1,26 @@
+===========  [Here are the slice info]  ===========
+The program name is : ExSymExe1False
+The total lines of original code is: 26
+The total lines of sliced code is: 14
+The deduction ratio is:46.15%
+===========  [Here are all the safe paths and used testcases]  ===========
+
+
+===========  [Here are all the dangerous paths and the dangerous inputs ]  ===========
+************** The dangerous path 1 ********************
+The Ct is:  ((y + 1) > 0)
+The (Dt) is :((y + 1) >= 0 && (y + 1) < 50)
+RE will be triggered under Ct && !(Dt):  ((y + 1) > 0) && !((y + 1) >= 0 && (y + 1) < 50)
+The dangerous inputs in this path are as follows: 
+1. [y=32767] 
+2. [y=10271] 
+3. [y=17601] 
+4. [y=55] 
+5. [y=16383] 
+6. [y=16439] 
+7. [y=49] 
+8. [y=50] 
+9. [y=178] 
+10. [y=8191] 
+11. [y=57] 
+12. [TOO_MANY_ERROR=1] 

@@ -1,0 +1,4 @@
+[{"testcaseMap":null,"mainMd":"public static void main(String[] args) {\nint i = 0;\nNullPointerException3.test(i);\n}","logicExprOfPath":" !(i < 0) && !(i > 10)","logicExprOfDT":"true","dangerousInput":false,"timeCostInMs":443.0}
+,{"testcaseMap":null,"mainMd":"public static void main(String[] args) {\nint i = 11;\nNullPointerException3.test(i);\n}","logicExprOfPath":" (i > 10)","logicExprOfDT":"true","dangerousInput":false,"timeCostInMs":436.0}
+,{"testcaseMap":null,"mainMd":"public static void main(String[] args) {\nint i = -32768;\nNullPointerException3.test(i);\n}","logicExprOfPath":" (i < 0) && !(i > 10)","logicExprOfDT":"true","dangerousInput":false,"timeCostInMs":436.0}
+]

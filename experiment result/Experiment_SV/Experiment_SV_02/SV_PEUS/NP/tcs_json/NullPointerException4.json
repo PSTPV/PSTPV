@@ -1,0 +1,5 @@
+[{"testcaseMap":null,"mainMd":"public static void main(String[] args) {\nint i = 115;\nNullPointerException4.test(i);\n}","logicExprOfPath":" (i > 15)","logicExprOfDT":"true","dangerousInput":false,"timeCostInMs":845.0}
+,{"testcaseMap":null,"mainMd":"public static void main(String[] args) {\nint i = -706;\nNullPointerException4.test(i);\n}","logicExprOfPath":" !((0) == 9) && !((0) < i) && !(i > 15)","logicExprOfDT":"true","dangerousInput":false,"timeCostInMs":508.0}
+,{"testcaseMap":null,"mainMd":"public static void main(String[] args) {\nint i = 3;\nNullPointerException4.test(i);\n}","logicExprOfPath":" (((((0) + i) + i) + i) == 9) && !(((((0) + 1) + 1) + 1) < i) && ((((0) + 1) + 1) < i) && (((0) + 1) < i) && ((0) < i) && !(i > 15)","logicExprOfDT":"false","dangerousInput":false,"timeCostInMs":549.0}
+,{"testcaseMap":{"i ":" 3"},"mainMd":null,"logicExprOfPath":" (((((0) + i) + i) + i) == 9) && !(((((0) + 1) + 1) + 1) < i) && ((((0) + 1) + 1) < i) && (((0) + 1) < i) && ((0) < i) && !(i > 15)","logicExprOfDT":"false","dangerousInput":true,"timeCostInMs":0.0}
+]

@@ -1,0 +1,5 @@
+[{"testcaseMap":null,"mainMd":"public static void main(String[] args) {\nint denom = 0;\nArithmeticException6.test(denom);\n}","logicExprOfPath":" !((denom * denom + 10) > 100)","logicExprOfDT":"true","dangerousInput":false,"timeCostInMs":476.0}
+,{"testcaseMap":null,"mainMd":"public static void main(String[] args) {\nint denom = -7985;\nArithmeticException6.test(denom);\n}","logicExprOfPath":" (((denom * denom + 10) - 10) >= 90) && ((denom * denom + 10) > 100)","logicExprOfDT":"((((denom * denom + 10) - 10) - 100) != 0)","dangerousInput":false,"timeCostInMs":486.0}
+,{"testcaseMap":{"denom ":" 10"},"mainMd":null,"logicExprOfPath":" (((denom * denom + 10) - 10) >= 90) && ((denom * denom + 10) > 100)","logicExprOfDT":"((((denom * denom + 10) - 10) - 100) != 0)","dangerousInput":true,"timeCostInMs":0.0}
+,{"testcaseMap":{"denom ":" -10"},"mainMd":null,"logicExprOfPath":" (((denom * denom + 10) - 10) >= 90) && ((denom * denom + 10) > 100)","logicExprOfDT":"((((denom * denom + 10) - 10) - 100) != 0)","dangerousInput":true,"timeCostInMs":0.0}
+]

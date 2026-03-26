@@ -1,0 +1,35 @@
+===========  [Here are the slice info]  ===========
+The program name is : NullPointerException4
+The total lines of original code is: 19
+The total lines of sliced code is: 17
+The deduction ratio is:10.52%
+===========  [Here are all the safe paths and used testcases]  ===========
+************** The safe path 1 ********************
+Timecost is: 508.0 ms
+The Ct is:  !((0) == 9) && !((0) < i) && !(i > 15)
+The Dt is :true
+Ct && !(Dt):  !((0) == 9) && !((0) < i) && !(i > 15) && !true, which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int i = -706;
+NullPointerException4.test(i);
+}
+************** The safe path 2 ********************
+Timecost is: 845.0 ms
+The Ct is:  (i > 15)
+The Dt is :true
+Ct && !(Dt):  (i > 15) && !true, which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+int i = 115;
+NullPointerException4.test(i);
+}
+
+
+===========  [Here are all the dangerous paths and the dangerous inputs ]  ===========
+************** The dangerous path 1 ********************
+The Ct is:  (((((0) + i) + i) + i) == 9) && !(((((0) + 1) + 1) + 1) < i) && ((((0) + 1) + 1) < i) && (((0) + 1) < i) && ((0) < i) && !(i > 15)
+The (Dt) is :false
+RE will be triggered under Ct && !(Dt):  (((((0) + i) + i) + i) == 9) && !(((((0) + 1) + 1) + 1) < i) && ((((0) + 1) + 1) < i) && (((0) + 1) < i) && ((0) < i) && !(i > 15) && !false
+The dangerous inputs in this path are as follows: 
+1. [i=3] 

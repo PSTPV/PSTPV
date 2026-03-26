@@ -1,0 +1,2 @@
+[{"testcaseMap":null,"mainMd":"public static void main(String[] args) {\nArithmeticException5.test();\n}","logicExprOfPath":"true","logicExprOfDT":"((3) != 0)","dangerousInput":false,"timeCostInMs":600.0}
+]

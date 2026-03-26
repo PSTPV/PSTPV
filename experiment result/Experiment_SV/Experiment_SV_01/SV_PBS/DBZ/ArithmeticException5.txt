@@ -1,0 +1,18 @@
+===========  [Here are the slice info]  ===========
+The program name is : ArithmeticException5
+The total lines of original code is: 18
+The total lines of sliced code is: 8
+The deduction ratio is:55.55%
+===========  [Here are all the safe paths and used testcases]  ===========
+************** The safe path 1 ********************
+Timecost is: 496.0 ms
+The Ct is: true
+The Dt is :((3) != 0)
+Ct && !(Dt): true && !((3) != 0), which is unsatisfiable!
+The testcase is:
+public static void main(String[] args) {
+ArithmeticException5.test();
+}
+
+
+===========  [Here are all the dangerous paths and the dangerous inputs ]  ===========

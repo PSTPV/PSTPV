@@ -1,0 +1,15 @@
+===========  [Here are the slice info]  ===========
+The program name is : CWE369_Divide_by_Zero__float_connect_tcp_divide_01_bad_version2
+The total lines of original code is: 95
+The total lines of sliced code is: 16
+The deduction ratio is:83.15%
+===========  [Here are all the safe paths and used testcases]  ===========
+
+
+===========  [Here are all the dangerous paths and the dangerous inputs ]  ===========
+************** The dangerous path 1 ********************
+The Ct is: true
+The (Dt) is :((stringNumberFloat - 119.0f) != 0)
+RE will be triggered under Ct && !(Dt): true && !((stringNumberFloat - 119.0f) != 0)
+The dangerous inputs in this path are as follows: 
+1. [stringNumberFloat=119] 

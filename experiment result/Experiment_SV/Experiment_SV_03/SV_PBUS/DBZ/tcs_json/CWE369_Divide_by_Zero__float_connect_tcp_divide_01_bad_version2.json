@@ -1,0 +1,3 @@
+[{"testcaseMap":null,"mainMd":"public static void main(String[] args) {\nfloat stringNumberFloat = 0f;\nCWE369_Divide_by_Zero__float_connect_tcp_divide_01_bad_version2.test(stringNumberFloat);\n}","logicExprOfPath":"true","logicExprOfDT":"((stringNumberFloat - 119.0f) != 0)","dangerousInput":false,"timeCostInMs":449.0}
+,{"testcaseMap":{"stringNumberFloat ":" 119"},"mainMd":null,"logicExprOfPath":"true","logicExprOfDT":"((stringNumberFloat - 119.0f) != 0)","dangerousInput":true,"timeCostInMs":0.0}
+]
